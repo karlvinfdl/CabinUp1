@@ -1,0 +1,175 @@
+# Catalogue — Logements fictifs pour CabinUp
+
+> 10 annonces complètes (5 villes × 2 logements). Chaque fiche contient description détaillée, équipements, proximité, prix, caution, capacités, disponibilités, adresse fictive, horaires et suggestions d’images.
+
+---
+
+## 🏔️ Chamonix (Montagne)
+
+### 1. Chalet Alpin Mont-Blanc
+- **Description détaillée** : Chalet alpin en bois massif de 120 m² rénové avec des matériaux locaux. Grand séjour cathédrale avec cheminée à foyer ouvert, canapé d’angle et fenêtres panoramiques donnant sur le Mont-Blanc. Cuisine entièrement équipée (four, plaques induction, lave-vaisselle) et salle à manger conviviale. Trois chambres (1 suite parentale + 2 chambres doubles), deux salles de bains modernes, et balcon exposé sud pour admirer le lever du soleil sur les sommets. Chauffage central, sèche-chaussures pour équipements de ski, et local à skis sécurisé. Atmosphère chaleureuse, idéal pour familles ou groupes cherchant confort et accès rapide aux pistes.
+- **Équipements** : Cheminée, Wi-Fi, cuisine équipée, lave-linge, parking privé, local à skis, sèche-chaussures, lit bébé sur demande.
+- **Activités / Proximité** : 5 min en voiture des remontées mécaniques, commerces et école de ski à proximité, sentiers de randonnée accessibles en été.
+- **Prix / nuit** : **150 €**
+- **Caution** : **400 €**
+- **Capacité** : **6 personnes**
+- **Disponibilité (ex.)** : 2 logements
+- **Adresse (fictive)** : 12 Rue du Mont-Blanc, 74400 Chamonix-Mont-Blanc
+- **Check-in / Check-out** : Check-in à partir de 16:00 — Check-out avant 11:00
+- **Politique d’annulation** : Remboursement complet si annulation > 14 jours avant l’arrivée, 50% entre 14 et 7 jours, non remboursable < 7 jours.
+- **Image suggérée** : Chalet en bois enneigé avec large balcon et montagnes en arrière-plan; photo intérieure du salon avec cheminée.
+
+---
+
+### 2. Studio Cosy des Pistes
+- **Description détaillée** : Studio de charme de 30 m², décor montagne moderne avec boiseries, literie grand confort et coin repas compact. Kitchenette équipée (mini-four, plaques, cafetière), salle de douche contemporaine et rangement pour matériel de sport. Grandes baies vitrées offrant vue sur les pistes et lumière naturelle abondante. Idéal pour séjour court ou week-end ski pour deux personnes ; service de ménage sur demande.
+- **Équipements** : Wi-Fi, kitchenette, TV écran plat, chauffage électrique, rangement matériel, lit 160×200.
+- **Activités / Proximité** : Accès direct aux navettes de ski, commerces et restaurants à 300 m.
+- **Prix / nuit** : **75 €**
+- **Caution** : **200 €**
+- **Capacité** : **2 personnes**
+- **Disponibilité (ex.)** : 4 logements
+- **Adresse (fictive)** : 3 Résidence des Pistes, 74400 Chamonix-Mont-Blanc
+- **Check-in / Check-out** : Check-in 15:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si annulation > 7 jours avant l’arrivée, 50% entre 7 et 3 jours.
+- **Image suggérée** : Intérieur cosy avec lit, plaids, poutres apparentes et vue sur piste.
+
+---
+
+## 🌊 Nice (Mer)
+
+### 3. Appartement Vue Méditerranée
+- **Description détaillée** : Appartement contemporain de 80 m² avec vaste balcon filant et vue directe sur la Méditerranée. Pièce de vie lumineuse avec cuisine ouverte haut de gamme, table à manger et coin salon. Deux chambres (une double, une twin) et salle de bain rénovée. Climatisation réversible, stores électriques et accès sécurisé à l’immeuble. Emplacement privilégié : plage à 2 minutes à pied, marché local quotidien et restaurants typiques à proximité.
+- **Équipements** : Climatisation, Wi-Fi fibre, machine à laver, lave-vaisselle, lit bébé sur demande, ascenseur.
+- **Activités / Proximité** : Promenade des Anglais, plages, musée Matisse et marché aux fleurs à quelques minutes.
+- **Prix / nuit** : **130 €**
+- **Caution** : **350 €**
+- **Capacité** : **4 personnes**
+- **Disponibilité (ex.)** : 3 logements
+- **Adresse (fictive)** : 21 Boulevard de la Mer, 06000 Nice
+- **Check-in / Check-out** : Check-in 16:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 14 jours, 50% entre 14 et 3 jours.
+- **Image suggérée** : Balcon avec table et vue mer azur ; intérieur moderne et lumineux.
+
+---
+
+### 4. Villa Plage Azur
+- **Description détaillée** : Villa familiale de 150 m² sur jardin clos, située à 200 m de la plage. Trois chambres spacieuses, deux salles de bains, grande pièce à vivre ouvrant sur terrasse et piscine privée (saisonnière). Cuisine professionnelle, plancha extérieure, coin repas ombragé et espace détente. Idéale pour des séjours multi-générationnels ou groupes désirant intimité et accès direct à la mer.
+- **Équipements** : Piscine, barbecue, parking privé, Wi-Fi, climatisation, lit bébé sur demande, linge de maison fourni.
+- **Activités / Proximité** : Promenade, sports nautiques, restaurants de plage, location de vélos.
+- **Prix / nuit** : **220 €**
+- **Caution** : **500 €**
+- **Capacité** : **8 personnes**
+- **Disponibilité (ex.)** : 1 logement
+- **Adresse (fictive)** : 5 Avenue des Palmiers, 06000 Nice
+- **Check-in / Check-out** : Check-in 17:00 — Check-out 10:00
+- **Politique d’annulation** : Remboursement complet si > 21 jours, 50% entre 21 et 7 jours.
+- **Image suggérée** : Villa blanche avec piscine entourée de palmiers ; terrasse face mer.
+
+---
+
+## 🌳 Fontainebleau (Forêt)
+
+### 5. Cabane dans les Arbres — L’Observatoire
+- **Description détaillée** : Expérience insolite dans une cabane perchée de 40 m², construite en harmonie avec les arbres. Accès par passerelle, terrasse suspendue avec fauteuils, lit queen-size et petite kitchenette intégrée. Chauffage discret, éclairage tamisé et vue à 360° sur la canopée. Parfaite pour une escapade romantique ou un week-end de déconnexion. Respect de l’environnement : toilettes sèches / sanitaire à proximité (ou option salle de bains privative selon annonce).
+- **Équipements** : Terrasse suspendue, kitchenette, chauffage, éclairage LED, literie haut de gamme, accès par escalier/passarelle.
+- **Activités / Proximité** : Forêt de Fontainebleau pour randonnées, blocs d’escalade (bouldering), circuits VTT.
+- **Prix / nuit** : **95 €**
+- **Caution** : **250 €**
+- **Capacité** : **2 personnes**
+- **Disponibilité (ex.)** : 2 logements
+- **Adresse (fictive)** : 1 Sentier des Pins, 77300 Fontainebleau
+- **Check-in / Check-out** : Check-in 15:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 10 jours, 50% entre 10 et 4 jours.
+- **Image suggérée** : Cabane en bois sur pilotis au milieu des arbres ; vue depuis la terrasse.
+
+---
+
+### 6. Maison Bois Écologique — Le Refuge
+- **Description détaillée** : Maison contemporaine en ossature bois de 100 m², isolation écologique et grandes baies vitrées offrant une immersion totale dans la forêt. Pièce à vivre ouverte avec poêle à bois, cuisine équipée et espace bureau. Deux chambres (lit king + lit double), salle de bain avec douche à l’italienne. Jardin privatif et terrasse avec coin repas ; stationnement privé. Parfaite pour des familles cherchant calme et confort moderne.
+- **Équipements** : Poêle à bois, Wi-Fi, cuisine équipée, lave-linge, parking, jardin privatif.
+- **Activités / Proximité** : Sentiers pédestres, équitation, châteaux et sites historiques à courte distance.
+- **Prix / nuit** : **110 €**
+- **Caution** : **300 €**
+- **Capacité** : **4 personnes**
+- **Disponibilité (ex.)** : 2 logements
+- **Adresse (fictive)** : 8 Chemin du Chêne, 77300 Fontainebleau
+- **Check-in / Check-out** : Check-in 16:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 14 jours, 50% entre 14 et 5 jours.
+- **Image suggérée** : Maison en bois moderne entourée d’arbres, intérieur lumineux avec baies vitrées.
+
+---
+
+## 🌆 Paris (Ville)
+
+### 7. Appartement Haussmannien — Le Marais
+- **Description détaillée** : Élégant appartement haussmannien de 90 m², situé au cœur du Marais. Parquet point de Hongrie, moulures d’époque, cheminée décorative et haut plafonds. Salon lumineux, deux chambres généreuses, cuisine séparée entièrement équipée et salle de bain avec baignoire. Emplacement idéal pour musées, boutiques de créateurs et restaurants. Logement calme côté cour, tout en étant à proximité immédiate de l’animation parisienne.
+- **Équipements** : Wi-Fi, machine à laver, lits queen/king, ascenseur ou escalier selon étage (à préciser), coffre-fort.
+- **Activités / Proximité** : Musée Picasso, Place des Vosges, cafés et galeries.
+- **Prix / nuit** : **180 €**
+- **Caution** : **400 €**
+- **Capacité** : **4 personnes**
+- **Disponibilité (ex.)** : 2 logements
+- **Adresse (fictive)** : 14 Rue des Oiseaux, 75004 Paris
+- **Check-in / Check-out** : Check-in 15:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 14 jours, 50% entre 14 et 3 jours.
+- **Image suggérée** : Salon haussmannien avec moulures, grandes fenêtres et parquet.
+
+---
+
+### 8. Studio Design — Canal Saint-Martin
+- **Description détaillée** : Studio contemporain de 25 m², décoration scandinave, optimisation de l’espace et équipement complet pour courts séjours. Coin nuit repliable, espace de travail, kitchenette fonctionnelle et salle de douche carrelée. Grande fenêtre donnant sur la rue calme ; emplacement pratique pour bars, cafés et balades le long du canal.
+- **Équipements** : Wi-Fi, machine à café, plaques, micro-ondes, lit double, espace de rangement.
+- **Activités / Proximité** : Promenades au bord du Canal, boutiques indépendantes, transports en commun (métro à 5 min).
+- **Prix / nuit** : **95 €**
+- **Caution** : **250 €**
+- **Capacité** : **2 personnes**
+- **Disponibilité (ex.)** : 3 logements
+- **Adresse (fictive)** : 7 Quai du Canal, 75010 Paris
+- **Check-in / Check-out** : Check-in 14:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 7 jours, 50% entre 7 et 2 jours.
+- **Image suggérée** : Studio lumineux, mobilier minimaliste et plantes, vue canal possible.
+
+---
+
+## 🍇 Bordeaux (Campagne / Vignobles)
+
+### 9. Maison de Vigneron — Clos des Vignes
+- **Description détaillée** : Authentique maison en pierre de 100 m² située au cœur d’un petit domaine viticole. Ambiance rustique-chic : poutres apparentes, cuisine provençale, salon avec cheminée et terrasse donnant sur les vignes. Deux chambres et un canapé convertible, salle d’eau moderne. Idéal pour découvrir les routes des vins, dégustations et circuits œnologiques. Hôtes disponibles pour recommandations de domaines et visites privées.
+- **Équipements** : Barbecue, terrasse, Wi-Fi, machine à laver, parking, guide local sur demande.
+- **Activités / Proximité** : Visites de châteaux, dégustations, balades à vélo dans les vignes, marchés locaux.
+- **Prix / nuit** : **120 €**
+- **Caution** : **350 €**
+- **Capacité** : **5 personnes**
+- **Disponibilité (ex.)** : 2 logements
+- **Adresse (fictive)** : 25 Route des Vignes, 33300 Bordeaux
+- **Check-in / Check-out** : Check-in 16:00 — Check-out 11:00
+- **Politique d’annulation** : Remboursement complet si > 14 jours, 50% entre 14 et 5 jours.
+- **Image suggérée** : Maison en pierre entourée de rangées de vignes au coucher du soleil.
+
+---
+
+### 10. Gîte Campagne Piscine — Le Domaine Vert
+- **Description détaillée** : Grand gîte de 140 m² pensé pour les réunions familiales : salon spacieux, cuisine pro, quatre chambres et deux salles de bains, grand jardin clos avec piscine privée (chlorée/sel selon saison). Espaces extérieurs aménagés (salon de jardin, balançoires) et vue dégagée sur la campagne. Services possibles : lit bébé, chaise haute, livraison petit-déjeuner sur demande.
+- **Équipements** : Piscine, lave-vaisselle, machine à laver, lit bébé, barbecue, parking, Wi-Fi, climatisation (selon saison).
+- **Activités / Proximité** : Visites œnologiques, villages pittoresques, randonnées et marchés de producteurs.
+- **Prix / nuit** : **200 €**
+- **Caution** : **500 €**
+- **Capacité** : **8 personnes**
+- **Disponibilité (ex.)** : 1 logement
+- **Adresse (fictive)** : 42 Chemin du Domaine, 33300 Bordeaux
+- **Check-in / Check-out** : Check-in 17:00 — Check-out 10:00
+- **Politique d’annulation** : Remboursement complet si > 21 jours, 50% entre 21 et 7 jours.
+- **Image suggérée** : Gîte pierre avec piscine au premier plan et champs à l’arrière.
+
+---
+
+### Notes d’intégration
+- Les **adresses** sont fictives : adapte selon ton besoin.  
+- Pour les **images**, utilise des photos libres de droits (Unsplash, Pexels) ou tes propres visuels ; les suggestions ci-dessus te donnent des idées de recherche (ex. “chalet snowy mont blanc”, “balcony sea view Nice”, “treehouse forest France”, “haussmann apartment interior”).
+- Si tu veux, je peux maintenant :
+  - Générer un **`db.json`** avec ces 10 fiches prêtes (champ images = chemins locaux ou URLs placeholders),  
+  - Ou fournir des **mini-descriptions SEO** (150–200 caractères) pour chaque annonce,  
+  - Ou créer les **photos placeholders** (descriptions pour générateur d’images).
+
+Souhaites-tu que je **génère le `db.json` complet** à partir de ces fiches maintenant ?  
