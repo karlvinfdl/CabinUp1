@@ -244,3 +244,36 @@ document.addEventListener('DOMContentLoaded', () => {
   initMap();
   renderCurrentPage();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('toggleAmenities');
+  const more = document.getElementById('moreAmenities');
+  if (!btn || !more) return;
+
+  btn.addEventListener('click', () => {
+    more.classList.toggle('hidden__detail');
+    btn.textContent = more.classList.contains('hidden__detail')
+      ? 'Voir plus'
+      : 'Voir moins';
+  });
+});
+
+
+// ---------- Carte Leaflet ----------
+function initMap() {
+  const mapEl = $('#map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  const map = L.map(mapEl).setView([45.75, 4.85], 10); // Coordonnées Lyon par défaut
+
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 20
+  }).addTo(map);
+
+  // Ajout d’un marqueur (tu peux personnaliser les coordonnées)
+  L.marker([45.75, 4.85])
+    .addTo(map)
+    .bindPopup('<strong>Cabane perchée en forêt</strong><br>Lyon');
+}
