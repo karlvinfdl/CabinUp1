@@ -1,22 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+  <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Accueil</title>
 
-  <!-- Fonts & Icons -->
+     <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style/style.css">
+  <link rel="stylesheet" href="/assets/styles/style.css" />
+  </head>
 
-</head>
-<body>
+  <body>
+  <!-- ==================================================
+  <-- NAVBAR -->
+  <!-- ================================================== -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <img src="assets/images/logo.png" alt="CabinUp logo" class="logo">
+    </div>
+
+    
+    <nav class="nav-links" id="nav-links">
+      <a href="#">Accueil</a>
+      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="/pages/panier.html">Panier</a>
+    </nav>
+
+    
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  <!-- ================================================== -->
+  <!-- MENU PLEIN ÉCRAN MOBILE -->
+  <!-- ================================================== -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="menu-header">
+      <img src="assets/images/logo.png" alt="CabinUp logo" class="logo">
+      <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
+    </div>
+
+    <nav class="menu-links">
+      <a href="#">Accueil</a>
+      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="/pages/panier.html">Panier</a>
+    </nav>
+
+    <div class="menu-footer">
+      <div class="socials">
+        <div class="icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="follow">Suivez-nous!</p>
+      </div>
+      <p>© 2025 CabinUp</p>
+    </div>
+  </div>
+
 
 <!-- ================================================== -->
 <!-- FOOTER -->
@@ -65,6 +111,6 @@
     <p>© 2025 CabinUp. Tous droits réservés.</p>
   </div>
 </footer>
-
+<script src="/assets/script/script.js"></script>
 </body>
 </html>
