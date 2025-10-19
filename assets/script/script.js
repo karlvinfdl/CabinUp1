@@ -19,7 +19,7 @@ menuClose?.addEventListener("click", () => {
 });
 
 // ============================================================
-// POPUP MOBILE "OÙ / QUAND / QUI" — PAGE CATALOGUE
+// POPUP MOBILE "OÙ / QUAND / QUI" (ACCUEIL/Catalogue)
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -55,6 +55,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ============================================================
+// DROPDOWN DES FEATURES (SECTION ACCUEIL) 
+// ============================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Sélection du bouton de bascule et des features cachées
+  const toggleBtn = document.querySelector(".features-toggle");
+  const hiddenFeatures = document.querySelectorAll(".feature__accueil2.feature-hidden");
+
+  // Si le bouton n'existe pas, on sort
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener("click", () => {
+    // On bascule l'état ouvert/fermé
+    const isOpen = toggleBtn.classList.toggle("open");
+
+    // On met à jour l'icône (chevron haut/bas)
+    const icon = toggleBtn.querySelector("i");
+    icon.classList.toggle("fa-chevron-down", !isOpen);
+    icon.classList.toggle("fa-chevron-up", isOpen);
+
+    // Mise à jour ARIA pour l'accessibilité
+    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+    // On affiche ou masque directement les features
+    hiddenFeatures.forEach((feature) => {
+      feature.style.display = isOpen ? "flex" : "none";
+    });
+  });
+});
 
 // ============================
 //  CATALOGUE + PAGINATION + MAP
