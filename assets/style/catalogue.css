@@ -1,0 +1,128 @@
+/* ========================================================================== */
+/* BARRE DE RECHERCHE (DESKTOP) */
+/* ========================================================================== */
+.accueil__search{display:flex;align-items:center;background:var(--beige);border-radius:50px;overflow:hidden;}
+.catalogue .accueil__search{margin:0 0 20px 0;max-width:1000px;width:100%;align-self:center;}
+.accueil__seg{flex:1;padding:12px 16px;text-align:left;position:relative;}
+.accueil__label{font-weight:600;color:var(--green);font-size:14px;margin-bottom:4px;}
+.accueil__seg input{border:0;background:transparent;outline:none;font-size:14px;color:#333;width:100%;cursor:pointer;}
+.accueil__cta{background:var(--green);color:#fff;border:2px solid var(--green);font-weight:700;padding:20px 24px;border-radius:50px;cursor:pointer;margin:6px;transition:background .2s ease,color .2s ease;}
+
+
+/* ========================================================================== */
+/* POPUP MOBILE PLEIN ÉCRAN */
+/* ========================================================================== */
+.accueil__popup{display:none;position:fixed;inset:0;background:#fff;z-index:10000;overflow:auto;}
+.accueil__popup.active{display:block;}
+.accueil__popup-content{padding:20px 16px 120px;min-height:100vh;display:flex;flex-direction:column;gap:16px;position:relative;}
+.accueil__popup-close{position:absolute;top:16px;right:16px;background:transparent;border:0;font-size:22px;color:var(--green);cursor:pointer;}
+.accueil__popup-card{border-radius:22px;padding:16px;box-shadow:0 12px 28px rgba(0,0,0,.12);background:#fff;}
+.accueil__popup-title{margin:0 0 12px;font-size:16px;font-weight:700;color:#000;}
+.accueil__mobile-search{display:flex;align-items:center;gap:10px;background:var(--green);border-radius:999px;padding:10px 14px;}
+.accueil__mobile-search svg{width:22px;height:22px;fill:#fff;}
+.accueil__mobile-search input{flex:1;border:0;background:transparent;color:#fff;font-size:15px;}
+.accueil__mobile-search input::placeholder{color:#EAF3EF;}
+.accueil__segmented{display:inline-flex;background:#E6F1EC;border-radius:999px;padding:4px;gap:4px;}
+.accueil__segmented-btn{border:0;background:transparent;padding:6px 12px;border-radius:999px;font-weight:700;color:#2A4A3F;cursor:pointer;}
+.accueil__segmented-btn.is-active{background:#fff;color:var(--green);}
+.accueil__mcal-head{display:flex;align-items:center;justify-content:space-between;margin:10px 0;}
+.accueil__mcal-title{display:flex;gap:8px;font-weight:700;font-size:20px;color:#000;}
+.accueil__mnav{width:32px;height:32px;border-radius:50%;border:0;background:var(--beige);color:var(--green);font-weight:700;cursor:pointer;}
+.accueil__mcal-week{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;}
+.accueil__mcal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.accueil__row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #efefef;}
+.accueil__row:last-child{border-bottom:0;}
+.accueil__row-title{font-weight:700;font-size:14px;color:#000;}
+.accueil__row-sub{display:block;font-weight:400;color:var(--grey);font-size:12px;}
+.accueil__row-ctrl{display:flex;align-items:center;gap:12px;}
+.accueil__num{min-width:16px;text-align:center;font-weight:700;}
+.accueil__ctl{all:unset;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;font-size:18px;font-weight:600;cursor:pointer;background:#fff;line-height:1;user-select:none;}
+.accueil__ctl.-minus{border:1px solid #d1d1d1;color:#9a9a9a;}
+.accueil__ctl.-minus:hover{background:#f5f5f5;}
+.accueil__ctl.-plus{border:1px solid var(--green);color:var(--green);}
+.accueil__ctl.-plus:hover{background:var(--green);color:#fff;}
+.accueil__popup-footer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eee;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;margin-bottom: 20px;}
+.accueil__clear{background:transparent;border:0;color:#000;font-weight:700;text-decoration:underline;cursor:pointer;}
+.accueil__cta--big{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:16px;}
+
+
+/* ========================================================================== */
+/* LAYOUT PRINCIPAL (CATALOGUE + MAP) */
+/* ========================================================================== */
+main{display:grid;grid-template-columns:65% 35%;gap:1.5rem;padding:2rem 3rem;background:#fff;min-height:calc(100vh - 150px);box-sizing:border-box;}
+.catalogue{display:flex;flex-direction:column;gap:1.5rem;overflow-y:auto;height:100%;}
+.catalogue h2{text-align: left;font-family: "Epunda Slab", Georgia, serif;font-weight: 500;font-size: 2.2rem;color: #2E5E4E;}
+
+/* ========================================================================== */
+/* GRILLE DES CARTES PRODUITS */
+/* ========================================================================== */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%;align-items:start;}
+.card{display:flex;flex-direction:row;align-items:stretch;background:#f5f5f5;border-radius:60px 18px 18px 0;overflow:hidden;box-shadow:0 3px 6px rgba(0,0,0,.1);height:150px;transition:transform .2s ease,box-shadow .2s ease;text-decoration: none;}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 10px rgba(0,0,0,.18);}
+.card img{width:150px;height:100%;object-fit:cover;border-right:1px solid #ddd;}
+.card-body{display:flex;flex-direction:column;justify-content:space-between;flex:1;padding:.75rem 1rem;}
+.card-body h3{font-size:1rem;font-weight:700;margin:0;color:#2E5E4E;}
+.card-body p{margin:.2rem 0;font-size:.85rem;color:#333;}
+.available{display:inline-block;margin-top:.3rem;padding:.25rem .6rem;background:var(--green);color:#fff;border-radius:6px;font-size:.75rem;}
+.price{text-align:right;font-weight:800;font-size:.95rem;color:#2E5E4E;white-space:nowrap;}
+.price::after{content:" / nuit";font-weight:500;color:#555;font-size:.85rem;}
+
+/* ========================================================================== */
+/* MAP */
+/* ========================================================================== */
+.map{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);height:100%; position: relative;z-index: 1; background-color: var(--beige);}
+#map{flex:1;width:100%;height:100%;min-height:500px;}
+.price-marker{background:#fff;border:2px solid var(--green);border-radius:10px;padding:4px 8px;font-size:14px;font-weight:bold;color:var(--green);box-shadow:0 2px 6px rgba(0,0,0,.2);width: 55px;}
+
+/* ========================================================================== */
+/* PAGINATION */
+/* ========================================================================== */
+.pagination{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:12px;margin-top:2rem;margin-bottom:3rem;width:100%;}
+.pagination button{border:2px solid var(--green);background:#fff;color:var(--green);padding:10px 18px;border-radius:50px;cursor:pointer;font-weight:700;font-size:15px;transition:all .25s ease;box-shadow:0 2px 4px rgba(0,0,0,.05);}
+.pagination button:hover{background:var(--green);color:#fff;transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
+.pagination button.active{background:var(--green);color:#fff;border-color:var(--green);transform:none;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+.pagination button:focus{outline:2px solid var(--green);outline-offset:2px;}
+
+
+
+/* ========================================================================== */
+/* 📱 VERSION MOBILE - Catalogue (uniquement bouton Rechercher centré) */
+/* ========================================================================== */
+@media(max-width:768px){
+  main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0px;gap:1rem;width:100%;}
+  section.catalogue{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+  section.catalogue h2{font-size:2.2rem;text-align:center;width:100%;margin:1rem 0 .5rem;color:#1e5c43;}
+
+  /* Barre de recherche simplifiée */
+  .catalogue .accueil__search{background:none!important;box-shadow:none!important;border:none!important;display:flex;align-items:center;justify-content:center;padding:0;width:100%;}
+  .catalogue .accueil__seg{display:none!important;}
+  .catalogue .accueil__cta{display:inline-block;width:80%;background:var(--green);color:#fff;border:2px solid var(--green);font-weight:700;padding:14px 32px;border-radius:50px;cursor:pointer;font-size:1rem;text-align:center;transition:.2s;}
+  .catalogue .accueil__cta--big{width: 60%;}
+  .catalogue .accueil__cta:hover{background:#144432;}
+
+  /* Cartes */
+  .cards{display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;max-width:420px;padding:1%;}
+  .card{width:90%;display:flex;flex-direction:row;background:#f5f5f5;border-radius:60px 18px 18px 0;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;transition:transform .2s ease;margin:0 auto;}
+  .card:hover{transform:translateY(-3px);}
+  .card img{width:40%;height:100%;object-fit:cover;}
+  .card-body{padding:.8rem .5rem;display:flex;flex-direction:column;justify-content:space-between;}
+  .card-body h3{font-size:1rem;margin:0 0 .4rem;}
+  .available{background:#1e5c43;color:#fff;border-radius:20px;padding:.2rem .8rem;font-size:.8rem;margin-top:.4rem;display:inline-block;}
+  .price{font-weight:600;color:#000;font-size:.95rem;margin-top:.4rem;}
+
+  /* Pagination */
+  .pagination{margin-top:1.2rem;display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;}
+  .pagination button{background:#1e5c43;color:#fff;border:none;border-radius:50px;padding:.6rem 1.2rem;font-size:1rem;cursor:pointer;transition:background .2s ease;}
+  .pagination button:hover{background:#144432;}
+  .pagination button.active{background:#144432;font-weight:700;}
+
+  /* Carte Leaflet */
+  .map{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem;max-width: 90%;background-color: var(--beige);}
+  #map{width:100%;max-width:380px;height:240px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+
+  /* Footer */
+  footer{padding:2rem 1rem;text-align:center;}
+  .footer-container{flex-direction:column;align-items:center;gap:1.5rem;}
+  .footer-right{flex-direction:column;align-items:center;gap:1rem;}
+  .footer-col h4,.footer-col a{text-align:center;}
+}
