@@ -1,5 +1,5 @@
 // ============================
-//  UTILITAIRES DOM (ajoutés !)
+//  UTILITAIRES DOM
 // ============================
 const $  = (sel, scope = document) => scope.querySelector(sel);
 const $$ = (sel, scope = document) => Array.from(scope.querySelectorAll(sel));
@@ -19,35 +19,30 @@ menuClose?.addEventListener("click", () => {
 });
 
 // ============================================================
-// POPUP MOBILE "OÙ / QUAND / QUI" (ACCUEIL/Catalogue)
+// POPUP MOBILE "OÙ / QUAND / QUI"
 // ============================================================
-
 document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.getElementById("search-btn");   // Bouton "Rechercher"
-  const popup = document.getElementById("mobile-popup");   // Popup mobile
-  const closeBtn = document.getElementById("popup-close"); // Bouton fermeture
-  const clearBtn = document.getElementById("popup-clear"); // Bouton "Tout effacer"
+  const openBtn = $("#search-btn");
+  const popup = $("#mobile-popup");
+  const closeBtn = $("#popup-close");
+  const clearBtn = $("#popup-clear");
 
   if (openBtn && popup && closeBtn) {
-
-    // --- Ouvre le popup uniquement sur mobile ---
     openBtn.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
-        e.preventDefault(); // Empêche le submit du form
+        e.preventDefault();
         popup.classList.add("active");
         popup.setAttribute("aria-hidden", "false");
         document.body.classList.add("popup-open");
       }
     });
 
-    // --- Ferme le popup ---
     closeBtn.addEventListener("click", () => {
       popup.classList.remove("active");
       popup.setAttribute("aria-hidden", "true");
       document.body.classList.remove("popup-open");
     });
 
-    // --- "Tout effacer" ---
     clearBtn?.addEventListener("click", () => {
       popup.querySelectorAll("input").forEach(inp => inp.value = "");
       popup.querySelectorAll(".accueil__num").forEach(num => num.textContent = "0");
@@ -56,56 +51,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================================================
-// DROPDOWN DES FEATURES (SECTION ACCUEIL) 
+// DROPDOWN DES FEATURES (ACCUEIL)
 // ============================================================
-
 document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = $(".features-toggle");
+  const hiddenFeatures = $$(".feature__accueil2.feature-hidden");
 
-  // Sélection du bouton de bascule et des features cachées
-  const toggleBtn = document.querySelector(".features-toggle");
-  const hiddenFeatures = document.querySelectorAll(".feature__accueil2.feature-hidden");
-
-  // Si le bouton n'existe pas, on sort
   if (!toggleBtn) return;
 
   toggleBtn.addEventListener("click", () => {
-    // On bascule l'état ouvert/fermé
     const isOpen = toggleBtn.classList.toggle("open");
-
-    // On met à jour l'icône (chevron haut/bas)
     const icon = toggleBtn.querySelector("i");
     icon.classList.toggle("fa-chevron-down", !isOpen);
     icon.classList.toggle("fa-chevron-up", isOpen);
-
-    // Mise à jour ARIA pour l'accessibilité
     toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-    // On affiche ou masque directement les features
-    hiddenFeatures.forEach((feature) => {
-      feature.style.display = isOpen ? "flex" : "none";
-    });
+    hiddenFeatures.forEach((f) => (f.style.display = isOpen ? "flex" : "none"));
   });
 });
 
-// ============================
+// ============================================================
 //  CATALOGUE + PAGINATION + MAP
-// ============================
+// ============================================================
 const PAGE_SIZE = 6;
 let allCards = [];
 let filteredCards = [];
 let currentPage = 1;
-
-// LEAFLET
 let map;
 let markerLayer;
 
-function initMap() {
+// ---------- CARTE CATALOGUE ----------
+function initMapCatalogue() {
   const mapEl = $('#map');
-  if (!mapEl) {
-    console.error("❌ Élément #map introuvable.");
-    return;
-  }
-
+  if (!mapEl) return;
   if (typeof L === 'undefined') {
     console.error('❌ Leaflet non chargé.');
     return;
@@ -121,9 +98,8 @@ function initMap() {
   }).addTo(map);
 
   markerLayer = L.layerGroup().addTo(map);
-
   setTimeout(() => map.invalidateSize(), 300);
-  console.log("✅ Carte Leaflet initialisée !");
+  console.log("✅ Carte Leaflet catalogue initialisée !");
 }
 
 function updateMapFromVisibleCards() {
@@ -164,11 +140,8 @@ function updateMapFromVisibleCards() {
     bounds.push([lat, lng]);
   });
 
-  if (bounds.length > 0) {
-    map.fitBounds(bounds, { padding: [50, 50] });
-  } else {
-    map.setView([46.5, 2], 6);
-  }
+  if (bounds.length > 0) map.fitBounds(bounds, { padding: [50, 50] });
+  else map.setView([46.5, 2], 6);
 }
 
 // ============================
@@ -226,28 +199,33 @@ function applyFilter() {
 //  INITIALISATION GLOBALE
 // ============================
 document.addEventListener('DOMContentLoaded', () => {
-  // Ne plante plus si updateCartCount() n’existe pas
   if (typeof updateCartCount === 'function') updateCartCount();
 
   const container = $('#cardsContainer');
   allCards = container ? $$('.card', container) : [];
   filteredCards = [...allCards];
 
-  $('#search-btn')?.addEventListener('click', applyFilter);
-  $('#dest-desktop')?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      applyFilter();
-    }
-  });
+  // Uniquement sur la page catalogue (si le conteneur existe)
+  if (container) {
+    $('#search-btn')?.addEventListener('click', applyFilter);
+    $('#dest-desktop')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyFilter();
+      }
+    });
 
-  initMap();
-  renderCurrentPage();
+    initMapCatalogue();
+    renderCurrentPage();
+  }
 });
 
+// ============================
+//  PAGE DÉTAIL : Voir plus / moins
+// ============================
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('toggleAmenities');
-  const more = document.getElementById('moreAmenities');
+  const btn = $('#toggleAmenities');
+  const more = $('#moreAmenities');
   if (!btn || !more) return;
 
   btn.addEventListener('click', () => {
@@ -258,21 +236,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-// ---------- Carte Leaflet ----------
-function initMap() {
+// ============================
+//  CARTE PAGE DÉTAIL
+// ============================
+function initMapDetail() {
   const mapEl = $('#map');
   if (!mapEl || typeof L === 'undefined') return;
 
-  const map = L.map(mapEl).setView([45.75, 4.85], 10); // Coordonnées Lyon par défaut
+  const map = L.map(mapEl).setView([45.75, 4.85], 10);
 
   L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="https://carto.com/">CARTO</a>',
+    attribution: '&copy; OpenStreetMap | CARTO',
     subdomains: "abcd",
     maxZoom: 20
   }).addTo(map);
 
-  // Ajout d’un marqueur (tu peux personnaliser les coordonnées)
   L.marker([45.75, 4.85])
     .addTo(map)
     .bindPopup('<strong>Cabane perchée en forêt</strong><br>Lyon');

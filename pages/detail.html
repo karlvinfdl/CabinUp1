@@ -21,7 +21,7 @@
   
 </head>
 
-<body class="product-page">
+<body class="product-page" onload="initMapDetail()">
   <!-- ================================================== -->
   <!-- NAVBAR -->
   <!-- ================================================== -->
@@ -211,5 +211,8 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="/assets/script/script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", initMapDetail);
+</script>
 </body>
 </html>
