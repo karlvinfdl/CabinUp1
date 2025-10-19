@@ -1,86 +1,215 @@
-// ============================================================
-// GESTION DU MENU MOBILE (OUVERTURE / FERMETURE)
-// ============================================================
+// ============================
+//  UTILITAIRES DOM (ajoutés !)
+// ============================
+const $  = (sel, scope = document) => scope.querySelector(sel);
+const $$ = (sel, scope = document) => Array.from(scope.querySelectorAll(sel));
 
-// Récupération des éléments du DOM nécessaires au menu mobile
-const navToggle = document.getElementById("nav-toggle");   // Bouton pour ouvrir le menu mobile
-const menuClose = document.getElementById("menu-close");   // Bouton pour fermer le menu mobile
-const mobileMenu = document.getElementById("mobile-menu"); // Conteneur du menu mobile
+// ============================
+//  MENU MOBILE
+// ============================
+const navToggle = document.getElementById("nav-toggle");
+const menuClose = document.getElementById("menu-close");
+const mobileMenu = document.getElementById("mobile-menu");
 
-// Lorsque l’utilisateur clique sur le bouton d’ouverture du menu
-navToggle.addEventListener("click", () => {
-  // On affiche le menu mobile en mode flex
+navToggle?.addEventListener("click", () => {
   mobileMenu.style.display = "flex";
 });
-
-// Lorsque l’utilisateur clique sur le bouton de fermeture du menu
-menuClose.addEventListener("click", () => {
-  // On masque le menu mobile
+menuClose?.addEventListener("click", () => {
   mobileMenu.style.display = "none";
 });
 
-
 // ============================================================
-// POPUP MOBILE (OUVERTURE / FERMETURE)
+// POPUP MOBILE "OÙ / QUAND / QUI" — PAGE CATALOGUE
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Sélection des éléments nécessaires pour le popup
-  const openBtn = document.getElementById("search-btn");   // Bouton d’ouverture du popup
-  const popup = document.getElementById("mobile-popup");   // Conteneur du popup
-  const closeBtn = document.getElementById("popup-close"); // Bouton de fermeture du popup
+  const openBtn = document.getElementById("search-btn");   // Bouton "Rechercher"
+  const popup = document.getElementById("mobile-popup");   // Popup mobile
+  const closeBtn = document.getElementById("popup-close"); // Bouton fermeture
+  const clearBtn = document.getElementById("popup-clear"); // Bouton "Tout effacer"
 
-  // On vérifie que tous les éléments existent avant d’attacher les événements
   if (openBtn && popup && closeBtn) {
 
-    // Événement : ouverture du popup sur mobile uniquement
-    openBtn.addEventListener("click", () => {
-      // Condition : uniquement si la largeur de l’écran est inférieure ou égale à 768px
+    // --- Ouvre le popup uniquement sur mobile ---
+    openBtn.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
-        popup.classList.add("active");                   // Ajoute la classe active pour afficher le popup
-        popup.setAttribute("aria-hidden", "false");       // Met à jour l’accessibilité
-        document.body.classList.add("popup-open");        // Empêche le scroll du fond
+        e.preventDefault(); // Empêche le submit du form
+        popup.classList.add("active");
+        popup.setAttribute("aria-hidden", "false");
+        document.body.classList.add("popup-open");
       }
     });
 
-    // Événement : fermeture du popup
+    // --- Ferme le popup ---
     closeBtn.addEventListener("click", () => {
-      popup.classList.remove("active");                  // Retire la classe active pour le masquer
-      popup.setAttribute("aria-hidden", "true");          // Met à jour l’accessibilité
-      document.body.classList.remove("popup-open");       // Réactive le scroll du fond
+      popup.classList.remove("active");
+      popup.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("popup-open");
+    });
+
+    // --- "Tout effacer" ---
+    clearBtn?.addEventListener("click", () => {
+      popup.querySelectorAll("input").forEach(inp => inp.value = "");
+      popup.querySelectorAll(".accueil__num").forEach(num => num.textContent = "0");
     });
   }
 });
 
 
-// ============================================================
-// DROPDOWN DES FEATURES (SECTION ACCUEIL) 
-// ============================================================
+// ============================
+//  CATALOGUE + PAGINATION + MAP
+// ============================
+const PAGE_SIZE = 6;
+let allCards = [];
+let filteredCards = [];
+let currentPage = 1;
 
-document.addEventListener("DOMContentLoaded", () => {
+// LEAFLET
+let map;
+let markerLayer;
 
-  // Sélection du bouton de bascule et des features cachées
-  const toggleBtn = document.querySelector(".features-toggle");
-  const hiddenFeatures = document.querySelectorAll(".feature__accueil2.feature-hidden");
+function initMap() {
+  const mapEl = $('#map');
+  if (!mapEl) {
+    console.error("❌ Élément #map introuvable.");
+    return;
+  }
 
-  // Si le bouton n'existe pas, on sort
-  if (!toggleBtn) return;
+  if (typeof L === 'undefined') {
+    console.error('❌ Leaflet non chargé.');
+    return;
+  }
 
-  toggleBtn.addEventListener("click", () => {
-    // On bascule l'état ouvert/fermé
-    const isOpen = toggleBtn.classList.toggle("open");
+  map = L.map('map', { zoomControl: true }).setView([46.5, 2], 6);
 
-    // On met à jour l'icône (chevron haut/bas)
-    const icon = toggleBtn.querySelector("i");
-    icon.classList.toggle("fa-chevron-down", !isOpen);
-    icon.classList.toggle("fa-chevron-up", isOpen);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 20,
+  }).addTo(map);
 
-    // Mise à jour ARIA pour l'accessibilité
-    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  markerLayer = L.layerGroup().addTo(map);
 
-    // On affiche ou masque directement les features
-    hiddenFeatures.forEach((feature) => {
-      feature.style.display = isOpen ? "flex" : "none";
-    });
+  setTimeout(() => map.invalidateSize(), 300);
+  console.log("✅ Carte Leaflet initialisée !");
+}
+
+function updateMapFromVisibleCards() {
+  if (!map || !markerLayer) return;
+  markerLayer.clearLayers();
+
+  const visible = filteredCards.filter(c => c.style.display !== 'none');
+  const bounds = [];
+
+  visible.forEach(card => {
+    const lat = parseFloat(card.dataset.lat);
+    const lng = parseFloat(card.dataset.lng);
+    if (isNaN(lat) || isNaN(lng)) return;
+
+    const prix = card.dataset.prix || '';
+    const ville = card.dataset.ville || '';
+    const dispo = card.dataset.dispo || '';
+    const img = card.querySelector('img')?.src || '';
+
+    const marker = L.marker([lat, lng], {
+      icon: L.divIcon({
+        className: "price-marker",
+        html: prix,
+        iconSize: null,
+        iconAnchor: [30, 20],
+      }),
+    }).addTo(markerLayer);
+
+    marker.bindPopup(`
+      <div style="text-align:center;width:230px">
+        ${img ? `<img src="${img}" alt="${ville}" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:6px">` : ''}
+        <strong style="font-size:16px">${ville}</strong><br>
+        ${dispo ? `<small>${dispo}</small><br>` : ''}
+        <span style="font-weight:bold;color:#2f6f3f;font-size:16px">${prix}</span>
+      </div>
+    `);
+
+    bounds.push([lat, lng]);
   });
+
+  if (bounds.length > 0) {
+    map.fitBounds(bounds, { padding: [50, 50] });
+  } else {
+    map.setView([46.5, 2], 6);
+  }
+}
+
+// ============================
+//  PAGINATION
+// ============================
+function buildPagination(totalItems) {
+  const container = $('#pagination');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const pageCount = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+
+  for (let i = 1; i <= pageCount; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      currentPage = i;
+      renderCurrentPage();
+    });
+    container.appendChild(btn);
+  }
+}
+
+function renderCurrentPage() {
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+
+  filteredCards.forEach((card, idx) => {
+    card.style.display = idx >= start && idx < end ? '' : 'none';
+  });
+
+  buildPagination(filteredCards.length);
+  updateMapFromVisibleCards();
+}
+
+// ============================
+//  FILTRAGE
+// ============================
+function applyFilter() {
+  const q = ($('#dest-desktop')?.value || '').trim().toLowerCase();
+  filteredCards = !q
+    ? [...allCards]
+    : allCards.filter(card => {
+        const ville = (card.dataset.ville || '').toLowerCase();
+        const titre = (card.querySelector('h3')?.textContent || '').toLowerCase();
+        return ville.includes(q) || titre.includes(q);
+      });
+
+  currentPage = 1;
+  renderCurrentPage();
+}
+
+// ============================
+//  INITIALISATION GLOBALE
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+  // Ne plante plus si updateCartCount() n’existe pas
+  if (typeof updateCartCount === 'function') updateCartCount();
+
+  const container = $('#cardsContainer');
+  allCards = container ? $$('.card', container) : [];
+  filteredCards = [...allCards];
+
+  $('#search-btn')?.addEventListener('click', applyFilter);
+  $('#dest-desktop')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      applyFilter();
+    }
+  });
+
+  initMap();
+  renderCurrentPage();
 });
