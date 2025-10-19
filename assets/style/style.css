@@ -1,0 +1,18 @@
+/* ========================================================================== */
+/*                                FOOTER                                      */
+/* ========================================================================== */
+.footer{background:linear-gradient(to right,#E8F3F5,#F5F1E6);padding:40px 20px;font-family:Arial,sans-serif;color:#2E5E4E;margin:30px 45px 45px 45px;}
+.footer-container{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;max-width:1200px;margin:auto;gap:40px;}
+.footer-left{flex:1;}
+.logo-block{display:flex;flex-direction:row;align-items:center;gap:20px;}
+.footer .logo{width:120px;height:auto;padding:10px 0;}
+.socials{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+.socials .icons{display:flex;flex-direction:row;gap:12px;}
+.follow{font-size:14px;font-weight:bold;margin:0;}
+.footer .socials a{font-size:20px;color:#1c3b2a;transition:.3s;}
+.footer .socials a:hover{color:#2E5E4E;}
+.footer-right{flex:2;display:flex;gap:60px;justify-content:center;text-align:left;flex-wrap:wrap;}
+.footer-col h4{font-size:16px;margin-bottom:12px;font-weight:bold;}
+.footer-col a{display:block;margin-bottom:6px;font-size:14px;color:#2E5E4E;text-decoration:none;transition:.3s;}
+.footer-col a:hover{text-decoration:underline;}
+.footer-bottom{margin-top:30px;text-align:center;font-size:14px;max-width:1200px;margin-left:auto;margin-right:auto;color:#2E5E4E;}
