@@ -13,9 +13,8 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/style/style.css" />
+  <link rel="stylesheet" href="/assets/style/panier.css" />
   </head>
-
-  <body>
   <!-- ==================================================
   <-- NAVBAR -->
   <!-- ================================================== -->
@@ -35,7 +34,10 @@
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
   </header>
 
-  <!-- ================================================== -->
+ 
+
+  <body>
+   <!-- ================================================== -->
   <!-- MENU PLEIN ÉCRAN MOBILE -->
   <!-- ================================================== -->
   <div class="mobile-menu" id="mobile-menu">
@@ -63,6 +65,86 @@
     </div>
   </div>
 
+<!-- ================================================== -->
+  <!-- CONTENU DU PANIER -->
+  <!-- ================================================== -->
+  <main class="panier container">
+    <h1 class="panier__title">Votre panier</h1>
+
+    <div class="panier__content">
+      <!-- Liste des logements -->
+      <section class="panier__list" id="cart-list">
+        <p>Chargement du panier...</p>
+      </section>
+
+      <!-- Résumé du panier -->
+      <aside class="panier-summary">
+        <div class="img ph"></div>
+        <div class="panier-summary__body">
+          <h3 id="sum-title">—</h3>
+
+          <div class="summary-row">
+            <div><strong>Dates</strong><br /><span id="sum-dates">—</span></div>
+          </div>
+
+          <div class="summary-row">
+            <div><strong>Voyageurs</strong><br /><span id="sum-guests">—</span></div>
+          </div>
+
+          <div class="summary-row">
+            <div><strong>Prix total</strong><br /><span id="sum-total">0 €</span></div>
+          </div>
+
+          <a href="#modal-paiement" class="btn btn--green">Procéder au paiement</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ================================================== -->
+  <!-- MODALE DE PAIEMENT -->
+  <!-- ================================================== -->
+  <div class="modal" id="modal-paiement">
+    <div class="modal-content">
+      <a href="#" class="close" aria-label="Fermer la fenêtre">&times;</a>
+      <h2>Formulaire de paiement</h2>
+
+      <form class="form-paiement">
+        <!-- Informations personnelles -->
+        <input type="text" placeholder="Prénom" required />
+        <input type="text" placeholder="Nom de famille" required />
+        <input type="email" placeholder="Email" required />
+        <input type="tel" placeholder="Numéro de téléphone" required />
+
+        <h3>Objet du séjour</h3>
+        <div class="radio-group">
+          <label><input type="radio" name="objet" checked /> Voyage d’affaires</label>
+          <label><input type="radio" name="objet" /> Vacances</label>
+          <label><input type="radio" name="objet" /> Autre</label>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" /> Je réserve au nom de quelqu’un d’autre
+        </label>
+
+        <input type="text" placeholder="Nom du voyageur" />
+        <input type="email" placeholder="Email du voyageur" />
+
+        <h3>Mode de paiement</h3>
+        <p>Carte bancaire</p>
+
+        <input type="text" placeholder="Nom sur la carte" required />
+        <input type="text" placeholder="1234 1234 1234 1234" maxlength="19" required />
+
+        <div class="carte-infos">
+          <input type="text" placeholder="MM / YY" maxlength="5" required />
+          <input type="text" placeholder="CVC" maxlength="3" required />
+        </div>
+
+        <button class="btn-payer" type="submit">Payer</button>
+      </form>
+    </div>
+  </div>
 
 <!-- ================================================== -->
 <!-- FOOTER -->
