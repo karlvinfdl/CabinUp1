@@ -1,5 +1,5 @@
 /* HERO */
-.accueil__hero{position:relative;min-height:100vh;background:#ddd url("/assets/images/a.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center}
+.accueil__hero{position:relative;min-height:100vh;background:#ddd url("..//images/a.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center}
 .accueil__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45),transparent 40%);backdrop-filter:brightness(0.9);}
 .accueil__content{position:relative;max-width:900px;color:#fff;text-align:center;padding:24px}
 .accueil__title{font-family:"Epunda Slab",serif;font-size:64px;line-height:1.05;margin:4vh 0 14vh;color:var(--beige);font-weight:400}

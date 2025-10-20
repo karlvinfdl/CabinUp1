@@ -1,0 +1,172 @@
+/* ================= PAGE 404 ================= */
+.page__404 {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #777;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.card__404 {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  background: #333 url("../images/404.avif") no-repeat center / cover;
+}
+
+.card__overlay__404 {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 5s ease-out;
+}
+
+.card__title__404 {
+  font-family: "Roboto Slab", serif;
+  font-size: 5rem;
+  margin: 0 0 20px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.card__subtitle__404 {
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0 0 10px;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.card__text__404 {
+  font-size: 1.3rem;
+  margin: 10px 0 20px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.card__button__404 {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.card__button__404:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+}
+
+.card__footer__404 {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============================================================== */
+/* ====================== RESPONSIVE TABLETTE ===================== */
+/* =============================================================== */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .card__404 {
+    max-width: 500px;
+    aspect-ratio: 4 / 5;
+    border-radius: 22px;
+  }
+
+  .card__overlay__404 {
+    padding: 40px 30px;
+  }
+
+  .card__title__404 {
+    font-size: 4.5rem;
+  }
+
+  .card__subtitle__404 {
+    font-size: 1.3rem;
+  }
+
+  .card__text__404 {
+    font-size: 1.05rem;
+  }
+
+  .card__button__404 {
+    font-size: 1rem;
+    padding: 10px 28px;
+  }
+
+  .card__footer__404 {
+    font-size: 0.85rem;
+  }
+}
+
+/* =============================================================== */
+/* ====================== RESPONSIVE MOBILE ======================= */
+/* =============================================================== */
+@media (max-width: 600px) {
+  .page__404 {
+    padding: 16px;
+  }
+
+  .card__404 {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 9 / 16;
+    border-radius: 20px;
+  }
+
+  .card__overlay__404 {
+    padding: 30px 18px;
+  }
+
+  .card__title__404 {
+    font-size: 3.2rem;
+  }
+
+  .card__subtitle__404 {
+    font-size: 1.1rem;
+  }
+
+  .card__text__404 {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .card__button__404 {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .card__footer__404 {
+    font-size: 0.75rem;
+    margin-top: 18px;
+  }
+}
