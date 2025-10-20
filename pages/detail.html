@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Détails du logement</title>
 
-     <!-- Fonts & Icons -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-  <!-- Styles -->
+  <!-- Styles (✅ chemins relatifs corrigés) -->
   <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
-    <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
-    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/detail-tNbuDv7E.css">
-    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
-  </head>
-
+  <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
+  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/detail-tNbuDv7E.css">
+  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
+</head>
 
 <body class="product-page" onload="initMapDetail()">
+
   <!-- ================================================== -->
   <!-- NAVBAR -->
   <!-- ================================================== -->
@@ -30,9 +30,9 @@
     </div>
 
     <nav class="nav-links" id="nav-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
-      <a href="/pages/panier.html">Panier</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
+      <a href="../pages/panier.html">Panier</a>
     </nav>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
@@ -48,9 +48,9 @@
     </div>
 
     <nav class="menu-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
-      <a href="/pages/panier.html">Panier</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
+      <a href="../pages/panier.html">Panier</a>
     </nav>
 
     <div class="menu-footer">
@@ -105,10 +105,8 @@
   </div>
 </section>
 
-
     <!-- Section principale -->
     <section class="main__detail">
-      <!-- Colonne gauche -->
       <div>
         <h1 id="product-title" class="listing-title__detail">Cabane perchée en forêt</h1>
         <div class="meta__detail">
@@ -130,14 +128,11 @@
           </p>
         </article>
 
-        <!-- Équipements -->
         <section class="amenities__detail">
           <h2>Équipements</h2>
-
           <div class="amen-grid__detail">
             <div class="amen__detail"><i class="fa-solid fa-tv"></i><span>TV écran plat</span></div>
           </div>
-
           <div class="amen-grid__detail hidden__detail" id="moreAmenities">
             <div class="amen__detail"><i class="fa-solid fa-phone"></i><span>Téléphone</span></div>
             <div class="amen__detail"><i class="fa-solid fa-laptop"></i><span>Bureau</span></div>
@@ -146,11 +141,9 @@
             <div class="amen__detail"><i class="fa-solid fa-utensils"></i><span>Plats / couverts</span></div>
             <div class="amen__detail"><i class="fa-solid fa-fan"></i><span>Sèche-cheveux</span></div>
           </div>
-
           <button class="toggle-btn__detail" id="toggleAmenities">Voir plus</button>
         </section>
 
-        <!-- Politiques -->
         <section>
           <h2>Règlement & Conditions</h2>
           <div class="policy__detail">
@@ -173,34 +166,28 @@
         </section>
       </div>
 
-      <!-- Colonne droite (réservation) -->
+      <!-- Colonne droite -->
       <aside class="booking__detail" aria-label="Réservation">
         <div id="product-price" class="price__detail" data-value="399">
           399€ <span class="muted__detail">/ nuit</span>
         </div>
-
         <div class="field__detail">
           <label for="arrivee">Arrivée</label>
           <input id="arrivee" type="date" />
         </div>
-
         <div class="field__detail">
           <label for="depart">Départ</label>
           <input id="depart" type="date" />
         </div>
-
         <div class="field__detail">
           <label for="guests">Invités</label>
           <input id="guests" type="number" min="1" max="10" value="1" />
         </div>
-
         <p class="muted__detail">Tous les services inclus</p>
-        <a href="/pages/panier.html" id="add-to-cart" class="cta__detail">Ajouter au panier</a>
-
+        <a href="../pages/panier.html" id="add-to-cart" class="cta__detail">Ajouter au panier</a>
       </aside>
     </section>
 
-    <!-- Carte -->
     <section class="map-card__detail">
       <h2>Emplacement</h2>
       <div id="map"></div>
@@ -208,57 +195,54 @@
   </main>
 
   <!-- ================================================== -->
-<!-- FOOTER -->
-<!-- ================================================== -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-left">
-      <div class="logo-block">
-        <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
-
-        <div class="socials">
-          <div class="icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+  <!-- FOOTER -->
+  <!-- ================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo-block">
+          <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
+          <div class="socials">
+            <div class="icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="follow">Suivez-nous !</p>
           </div>
-          <p class="follow">Suivez-nous !</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <a href="#">GreenGo Explore</a>
+          <a href="#">Comparateur de transports</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Aide & Contact</h4>
+          <a href="#">Besoin d’aide ?</a>
+          <a href="#">Hébergeurs – Nous rejoindre</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>404</h4>
+          <a href="../pages/404.html">Aperçu 404</a>
+          <a href="#">Conditions générales</a>
         </div>
       </div>
     </div>
 
-    <div class="footer-right">
-      <div class="footer-col">
-        <h4>À propos</h4>
-        <a href="#">GreenGo Explore</a>
-        <a href="#">Comparateur de transports</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Aide & Contact</h4>
-        <a href="#">Besoin d’aide ?</a>
-        <a href="#">Hébergeurs – Nous rejoindre</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>404</h4>
-        <a href="/pages/404.html">Aperçu 404</a>
-        <a href="#">Conditions générales</a>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2025 CabinUp. Tous droits réservés.</p>
     </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 CabinUp. Tous droits réservés.</p>
-  </div>
-</footer>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-  document.addEventListener("DOMContentLoaded", initMapDetail);
-</script>
+    document.addEventListener("DOMContentLoaded", initMapDetail);
+  </script>
 </body>
 </html>

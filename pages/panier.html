@@ -1,46 +1,43 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier</title>
 
-     <!-- Fonts & Icons -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Styles -->
+  <!-- Styles (✅ chemins corrigés) -->
   <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
-    <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
-    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/panier-DzK3cXTf.css">
-    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
-  </head>
-  <!-- ==================================================
-  <-- NAVBAR -->
+  <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
+  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/panier-DzK3cXTf.css">
+  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
+</head>
+
+<body>
+  <!-- ================================================== -->
+  <!-- NAVBAR -->
   <!-- ================================================== -->
   <header class="navbar">
     <div class="nav-brand">
       <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo">
     </div>
 
-    
     <nav class="nav-links" id="nav-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
       <a href="#">Panier</a>
     </nav>
 
-    
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
   </header>
 
- 
-
-  <body>
-   <!-- ================================================== -->
-  <!-- MENU PLEIN ÉCRAN MOBILE -->
+  <!-- ================================================== -->
+  <!-- MENU MOBILE -->
   <!-- ================================================== -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="menu-header">
@@ -49,8 +46,8 @@
     </div>
 
     <nav class="menu-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
       <a href="#">Panier</a>
     </nav>
 
@@ -61,25 +58,23 @@
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-        <p class="follow">Suivez-nous!</p>
+        <p class="follow">Suivez-nous !</p>
       </div>
       <p>© 2025 CabinUp</p>
     </div>
   </div>
 
-<!-- ================================================== -->
+  <!-- ================================================== -->
   <!-- CONTENU DU PANIER -->
   <!-- ================================================== -->
   <main class="panier container">
     <h1 class="panier__title">Votre panier</h1>
 
     <div class="panier__content">
-      <!-- Liste des logements -->
       <section class="panier__list" id="cart-list">
         <p>Chargement du panier...</p>
       </section>
 
-      <!-- Résumé du panier -->
       <aside class="panier-summary">
         <div class="img ph"></div>
         <div class="panier-summary__body">
@@ -112,7 +107,6 @@
       <h2>Formulaire de paiement</h2>
 
       <form class="form-paiement">
-        <!-- Informations personnelles -->
         <input type="text" placeholder="Prénom" required />
         <input type="text" placeholder="Nom de famille" required />
         <input type="email" placeholder="Email" required />
@@ -148,52 +142,52 @@
     </div>
   </div>
 
-<!-- ================================================== -->
-<!-- FOOTER -->
-<!-- ================================================== -->
-<footer class="footer">
-  <div class="footer-container">
+  <!-- ================================================== -->
+  <!-- FOOTER -->
+  <!-- ================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo-block">
+          <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
 
-    <div class="footer-left">
-      <div class="logo-block">
-        <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
-
-        <div class="socials">
-          <div class="icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+          <div class="socials">
+            <div class="icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="follow">Suivez-nous !</p>
           </div>
-          <p class="follow">Suivez-nous !</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <a href="#">GreenGo Explore</a>
+          <a href="#">Comparateur de transports</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Aide & Contact</h4>
+          <a href="#">Besoin d’aide ?</a>
+          <a href="#">Hébergeurs – Nous rejoindre</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>404</h4>
+          <a href="../pages/404.html">Aperçu 404</a>
+          <a href="#">Conditions générales</a>
         </div>
       </div>
     </div>
 
-    <div class="footer-right">
-      <div class="footer-col">
-        <h4>À propos</h4>
-        <a href="#">GreenGo Explore</a>
-        <a href="#">Comparateur de transports</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Aide & Contact</h4>
-        <a href="#">Besoin d’aide ?</a>
-        <a href="#">Hébergeurs – Nous rejoindre</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>404</h4>
-        <a href="/pages/404.html">Aperçu 404</a>
-        <a href="#">Conditions générales</a>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2025 CabinUp. Tous droits réservés.</p>
     </div>
+  </footer>
 
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 CabinUp. Tous droits réservés.</p>
-  </div>
-</footer>
+  <!-- Scripts (✅ corrigés) -->
 </body>
 </html>
