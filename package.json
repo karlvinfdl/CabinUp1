@@ -1,0 +1,31 @@
+{
+  "name": "cabinup1",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000C\u0000a\u0000b\u0000i\u0000n\u0000U\u0000p\u00001\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "serve": "vite preview",
+  "api": "json-server --watch mock/db.json --port 3001"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlvinfdl/CabinUp1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karlvinfdl/CabinUp1/issues"
+  },
+  "homepage": "https://github.com/karlvinfdl/CabinUp1#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "vite": "^7.1.11"
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
