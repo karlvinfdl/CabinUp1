@@ -14,7 +14,7 @@
 
   <!-- Styles (✅ chemins relatifs corrigés) -->
   <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
-  <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
+  <script type="module" crossorigin src="/CabinUp1/assets/script-D_nEj09a.js"></script>
   <link rel="stylesheet" crossorigin href="/CabinUp1/assets/detail-tNbuDv7E.css">
   <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
 </head>
@@ -241,8 +241,15 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", initMapDetail);
-  </script>
+ <script>
+  window.addEventListener("load", () => {
+    if (typeof initMapDetail === "function") {
+      initMapDetail();
+    } else {
+      console.warn("⚠️ initMapDetail n’est pas encore chargé.");
+    }
+  });
+</script>
+
 </body>
 </html>
