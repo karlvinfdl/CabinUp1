@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Détails du logement</title>
+
+     <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Styles -->
+  <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
+    <script type="module" crossorigin src="/CabinUp1/assets/script-c2S909y6.js"></script>
+    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/detail-tNbuDv7E.css">
+    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
+  </head>
+
+
+<body class="product-page" onload="initMapDetail()">
+  <!-- ================================================== -->
+  <!-- NAVBAR -->
+  <!-- ================================================== -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo" />
+    </div>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="/pages/panier.html">Panier</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  <!-- ================================================== -->
+  <!-- MENU MOBILE -->
+  <!-- ================================================== -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="menu-header">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo" />
+      <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
+    </div>
+
+    <nav class="menu-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="/pages/panier.html">Panier</a>
+    </nav>
+
+    <div class="menu-footer">
+      <div class="socials">
+        <div class="icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="follow">Suivez-nous !</p>
+      </div>
+      <p>© 2025 CabinUp</p>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- CONTENU PRINCIPAL -->
+  <!-- ================================================== -->
+  <main class="container__detail">
+    <!-- Titre -->
+    <div class="title-row__detail">
+      <div class="leaf__detail"></div>
+      <div class="subtitle__detail">Détails du logement</div>
+    </div>
+
+    <!-- Galerie -->
+<section class="gallery__detail" aria-label="Galerie de photos du logement">
+  <div class="hero__detail">
+    <img id="product-image" src="/CabinUp1/assets/cabane1-Cpf24L9y.avif" alt="Cabane dans la forêt" />
+    <a href="#galerie" class="view-all__detail">Voir toutes les photos</a>
+  </div>
+
+  <!-- Lightbox toutes photos -->
+  <div id="galerie" class="lightbox">
+    <a href="#" class="lightbox__close" aria-label="Fermer">✕</a>
+    <div class="lightbox__slides all-visible">
+      <img src="/CabinUp1/assets/cabane1-Cpf24L9y.avif" alt="Cabane 1" />
+      <img src="/CabinUp1/assets/cabane2-DKFy5hs0.avif" alt="Cabane 2" />
+      <img src="/CabinUp1/assets/cabane3-B430Xbj9.avif" alt="Cabane 3" />
+      <img src="/CabinUp1/assets/cabane4-TxY7Dp0u.avif" alt="Cabane 4" />
+      <img src="/CabinUp1/assets/cabane5-BIyGy9vh.avif" alt="Cabane 5" />
+      <img src="/CabinUp1/assets/cabane6-DGLOQg2f.avif" alt="Cabane 6" />
+      <img src="/CabinUp1/assets/cabane7-DoJGuc4M.avif" alt="Cabane 7" />
+    </div>
+  </div>
+
+  <div class="thumbs__detail">
+    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane2-DKFy5hs0.avif" alt="Vue 2" /></div>
+    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane3-B430Xbj9.avif" alt="Vue 3" /></div>
+    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane4-TxY7Dp0u.avif" alt="Vue 4" /></div>
+    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane5-BIyGy9vh.avif" alt="Vue 5" /></div>
+  </div>
+</section>
+
+
+    <!-- Section principale -->
+    <section class="main__detail">
+      <!-- Colonne gauche -->
+      <div>
+        <h1 id="product-title" class="listing-title__detail">Cabane perchée en forêt</h1>
+        <div class="meta__detail">
+          <span>Lyon</span>
+          <span class="dot__detail"></span>
+          <span>2 chambres</span>
+          <span class="dot__detail"></span>
+          <span>2 bains</span>
+        </div>
+
+        <article id="product-desc" class="desc__detail">
+          <h3>Description</h3>
+          <p>
+            Blottie au cœur d’une forêt verdoyante, cette cabane perchée vous offre une expérience inoubliable.
+            Conçue en bois local, elle allie confort moderne et authenticité.
+          </p>
+          <p>
+            Profitez d’une terrasse suspendue pour admirer les couchers de soleil et vous reconnecter à la nature.
+          </p>
+        </article>
+
+        <!-- Équipements -->
+        <section class="amenities__detail">
+          <h2>Équipements</h2>
+
+          <div class="amen-grid__detail">
+            <div class="amen__detail"><i class="fa-solid fa-tv"></i><span>TV écran plat</span></div>
+          </div>
+
+          <div class="amen-grid__detail hidden__detail" id="moreAmenities">
+            <div class="amen__detail"><i class="fa-solid fa-phone"></i><span>Téléphone</span></div>
+            <div class="amen__detail"><i class="fa-solid fa-laptop"></i><span>Bureau</span></div>
+            <div class="amen__detail"><i class="fa-solid fa-snowflake"></i><span>Réfrigérateur</span></div>
+            <div class="amen__detail"><i class="fa-solid fa-mug-hot"></i><span>Machine à café</span></div>
+            <div class="amen__detail"><i class="fa-solid fa-utensils"></i><span>Plats / couverts</span></div>
+            <div class="amen__detail"><i class="fa-solid fa-fan"></i><span>Sèche-cheveux</span></div>
+          </div>
+
+          <button class="toggle-btn__detail" id="toggleAmenities">Voir plus</button>
+        </section>
+
+        <!-- Politiques -->
+        <section>
+          <h2>Règlement & Conditions</h2>
+          <div class="policy__detail">
+            <div class="card__detail">
+              <h3>Règlement intérieur</h3>
+              <ul>
+                <li>Check-in flexible</li>
+                <li>Checkout 11:00</li>
+                <li>Non-fumeur</li>
+                <li>Animaux acceptés</li>
+              </ul>
+            </div>
+            <div class="card__detail">
+              <h3>Conditions d’annulation</h3>
+              <ul>
+                <li>Annulation gratuite jusqu’à 24h avant l’arrivée.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Colonne droite (réservation) -->
+      <aside class="booking__detail" aria-label="Réservation">
+        <div id="product-price" class="price__detail" data-value="399">
+          399€ <span class="muted__detail">/ nuit</span>
+        </div>
+
+        <div class="field__detail">
+          <label for="arrivee">Arrivée</label>
+          <input id="arrivee" type="date" />
+        </div>
+
+        <div class="field__detail">
+          <label for="depart">Départ</label>
+          <input id="depart" type="date" />
+        </div>
+
+        <div class="field__detail">
+          <label for="guests">Invités</label>
+          <input id="guests" type="number" min="1" max="10" value="1" />
+        </div>
+
+        <p class="muted__detail">Tous les services inclus</p>
+        <a href="/pages/panier.html" id="add-to-cart" class="cta__detail">Ajouter au panier</a>
+
+      </aside>
+    </section>
+
+    <!-- Carte -->
+    <section class="map-card__detail">
+      <h2>Emplacement</h2>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <div class="logo-block">
+        <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
+
+        <div class="socials">
+          <div class="icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p class="follow">Suivez-nous !</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <a href="#">GreenGo Explore</a>
+        <a href="#">Comparateur de transports</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Aide & Contact</h4>
+        <a href="#">Besoin d’aide ?</a>
+        <a href="#">Hébergeurs – Nous rejoindre</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>404</h4>
+        <a href="/pages/404.html">Aperçu 404</a>
+        <a href="#">Conditions générales</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CabinUp. Tous droits réservés.</p>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", initMapDetail);
+</script>
+</body>
+</html>
