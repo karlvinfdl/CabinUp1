@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+
+     <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
+    <link rel="stylesheet" crossorigin href="/CabinUp1/assets/index-DeUpWDck.css">
+  </head>
+
+  <body>
+  <!-- ==================================================
+  <-- NAVBAR -->
+  <!-- ================================================== -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo">
+    </div>
+
+    
+    <nav class="nav-links" id="nav-links">
+      <a href="#">Accueil</a>
+      <a href="./pages/catalogue.html">Catalogue</a>
+      <a href="./pages/panier.html">Panier</a>
+    </nav>
+
+    
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  
+  <!-- ================================================== -->
+  <!-- MENU PLEIN ÉCRAN MOBILE -->
+  <!-- ================================================== -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="menu-header">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo">
+      <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
+    </div>
+
+    <nav class="menu-links">
+      <a href="#">Accueil</a>
+      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="/pages/panier.html">Panier</a>
+    </nav>
+
+    <div class="menu-footer">
+      <div class="socials">
+        <div class="icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="follow">Suivez-nous!</p>
+      </div>
+      <p>© 2025 CabinUp</p>
+    </div>
+  </div>
+
+<main>
+   <!-- HERO -->
+  <section class="accueil__hero">
+    <div class="accueil__overlay"></div>
+    <div class="accueil__content">
+      <h1 class="accueil__title">Découvrez nos logements uniques au cœur de la nature</h1>
+      <form class="accueil__search" id="home-search" onsubmit="return false;">
+        <div class="accueil__seg" data-type="dest">
+          <div class="accueil__label">Destination</div>
+          <input type="text" id="dest-desktop" placeholder="Où voulez-vous aller ?" />
+        </div>
+        <div class="accueil__seg" data-type="arrival">
+          <div class="accueil__label">Arrivée</div>
+          <input type="text" id="arrival" placeholder="Date d’arrivée" readonly />
+        </div>
+        <div class="accueil__seg" data-type="departure">
+          <div class="accueil__label">Départ</div>
+          <input type="text" id="departure" placeholder="Date de départ" readonly />
+        </div>
+        <div class="accueil__seg" data-type="voyageurs">
+          <div class="accueil__label">Voyageurs</div>
+          <input type="text" id="voyageurs" placeholder="2 voyageurs" readonly />
+        </div>
+        <button type="submit" id="search-btn" class="accueil__cta"><i class="fa fa-search" style="margin-right:8px;"></i> Rechercher</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== POPUP MOBILE ===================== -->
+<div id="mobile-popup" class="accueil__popup" aria-hidden="true">
+  <div class="accueil__popup-content">
+    <button id="popup-close" class="accueil__popup-close" aria-label="Fermer">✕</button>
+
+    <!-- Section Où ? -->
+    <section class="accueil__popup-card">
+      <h2 class="accueil__popup-title">Où ?</h2>
+      <label class="accueil__mobile-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79L20 21.5 21.5 20 15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input id="dest-mobile" type="text" placeholder="Rechercher une destination" />
+      </label>
+    </section>
+
+    <!-- Section Quand ? -->
+    <section class="accueil__popup-card">
+      <h2 class="accueil__popup-title">Quand ?</h2>
+      <div class="accueil__segmented">
+        <button type="button" class="accueil__segmented-btn is-active">Dates</button>
+        <button type="button" class="accueil__segmented-btn">Mois</button>
+      </div>
+      <div class="accueil__mcal">
+        <div class="accueil__mcal-head">
+          <button id="m-prev" type="button" class="accueil__mnav">&lt;</button>
+          <div class="accueil__mcal-title"><span id="m-month">Mois</span> <span id="m-year">2025</span></div>
+          <button id="m-next" type="button" class="accueil__mnav">&gt;</button>
+        </div>
+        <div class="accueil__mcal-week"></div>
+        <div id="m-grid" class="accueil__mcal-grid"></div>
+      </div>
+    </section>
+
+    <!-- Section Qui ? -->
+    <section class="accueil__popup-card">
+      <h2 class="accueil__popup-title">Qui ?</h2>
+
+      <div class="accueil__row" data-scope="mob" data-type="adults">
+        <div>
+          <div class="accueil__row-title">Adultes</div>
+          <div class="accueil__row-sub">18 ans et plus</div>
+        </div>
+        <div class="accueil__row-ctrl">
+          <button class="accueil__ctl -minus">−</button>
+          <span class="accueil__num">0</span>
+          <button class="accueil__ctl -plus">+</button>
+        </div>
+      </div>
+
+      <div class="accueil__row" data-scope="mob" data-type="children">
+        <div>
+          <div class="accueil__row-title">Enfants</div>
+          <div class="accueil__row-sub">De 2 à 17 ans</div>
+        </div>
+        <div class="accueil__row-ctrl">
+          <button class="accueil__ctl -minus">−</button>
+          <span class="accueil__num">0</span>
+          <button class="accueil__ctl -plus">+</button>
+        </div>
+      </div>
+
+      <div class="accueil__row" data-scope="mob" data-type="pets">
+        <div>
+          <div class="accueil__row-title">Animaux domestiques</div>
+        </div>
+        <div class="accueil__row-ctrl">
+          <button class="accueil__ctl -minus">−</button>
+          <span class="accueil__num">0</span>
+          <button class="accueil__ctl -plus">+</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="accueil__popup-footer">
+    <button id="popup-clear" class="accueil__clear">Tout effacer</button>
+    <button id="popup-search" class="accueil__cta accueil__cta--big">Rechercher</button>
+  </div>
+</div>
+
+
+ <!-- SLOGAN -->
+<section class="slogan">
+  <h2>
+    <span class="slogan__desktop">« Reconnectez-vous à l’essentiel : des cabanes et maisons uniques au cœur de la nature. »</span>
+    <span class="slogan__mobile">« Reconnectez-vous à l’essentiel. »</span>
+  </h2>
+</section>
+
+ <!-- FEATURES -->
+<section class="features__accueil2">
+  <div class="feature__accueil2"><i class="fa-solid fa-leaf"></i><p>Éco-responsables</p></div>
+  <div class="feature__accueil2 feature-hidden"><i class="fa-solid fa-wifi"></i><p>Wi-Fi haut débit</p></div>
+  <div class="feature__accueil2 feature-hidden"><i class="fa-solid fa-comments"></i><p>Assistance 24/7</p></div>
+ 
+  <button class="features-toggle" aria-expanded="false" aria-label="Voir plus">
+    <i class="fa-solid fa-chevron-down"></i>
+  </button>
+</section>
+
+
+
+  <!-- CARROUSEL -->
+  <h2>Choisissez votre emplacement</h2>
+<div class="carousel-container__accueil2 emplacements">
+  <button class="arrow__accueil2 left"><i class="fa-solid fa-chevron-left"></i></button>
+
+  <div class="locations__accueil2 carousel__accueil2 centered-carousel">
+    <div class="location__accueil2"><img src="/CabinUp1/assets/foret-YzUsoTrd.avif" alt=""><p>Forêt</p></div>
+    <div class="location__accueil2"><img src="/CabinUp1/assets/montagne-Bty8lKhp.avif" alt=""><p>Montagne</p></div>
+    <div class="location__accueil2"><img src="/CabinUp1/assets/ville-7zS4mhAv.avif" alt=""><p>Ville</p></div>
+    <div class="location__accueil2"><img src="/CabinUp1/assets/insolite-PlrLCYZH.avif" alt=""><p>Insolites / Atypiques</p></div>
+    <div class="location__accueil2"><img src="/CabinUp1/assets/dom-DVn3hOcz.avif" alt=""><p>DOM-TOM</p></div>
+    <div class="location__accueil2"><img src="/CabinUp1/assets/tropicale-ZqQUAlFX.avif" alt=""><p>Forêt tropicale</p></div>
+  </div>
+
+  <button class="arrow__accueil2 right"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<!-- Logements -->
+<h2>Profitez du soleil</h2>
+<div class="carousel-container__accueil2">
+  <button class="arrow__accueil2 left"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="carousel__accueil2">
+    <!-- Exemple de cartes logements -->
+    <div class="card__accueil2">
+      <img src="https://picsum.photos/600/400?1" alt="">
+      <div class="card-content__accueil2">
+        <h3>Rhoncus suspendisse penatibus mauris, sit non</h3>
+        <div class="icons__accueil2">
+          <span><i class="fa-solid fa-bed"></i> 1 chambre</span>
+          <span><i class="fa-solid fa-bath"></i> 1 bain</span>
+          <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+        </div>
+        <div class="price__accueil2">120 € <span class="unit__accueil2">/nuit</span></div>
+        <div class="availability__accueil2">Disponible <b>28 Nov 2021</b></div>
+      </div>
+    </div>
+    <div class="card__accueil2">
+      <img src="https://picsum.photos/600/400?2" alt="">
+      <div class="card-content__accueil2">
+        <h3>Logement cosy au cœur de la ville</h3>
+        <div class="icons__accueil2">
+          <span><i class="fa-solid fa-bed"></i> 2 chambres</span>
+          <span><i class="fa-solid fa-bath"></i> 1 bain</span>
+          <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+        </div>
+        <div class="price__accueil2">150 € <span class="unit__accueil2">/nuit</span></div>
+        <div class="availability__accueil2">Disponible <b>30 Nov 2021</b></div>
+      </div>
+    </div>
+    <div class="card__accueil2">
+      <img src="https://picsum.photos/600/400?2" alt="">
+      <div class="card-content__accueil2">
+        <h3>Logement cosy au cœur de la ville</h3>
+        <div class="icons__accueil2">
+          <span><i class="fa-solid fa-bed"></i> 2 chambres</span>
+          <span><i class="fa-solid fa-bath"></i> 1 bain</span>
+          <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+        </div>
+        <div class="price__accueil2">150 € <span class="unit__accueil2">/nuit</span></div>
+        <div class="availability__accueil2">Disponible <b>30 Nov 2021</b></div>
+      </div>
+    </div>
+    <div class="card__accueil2">
+      <img src="https://picsum.photos/600/400?2" alt="">
+      <div class="card-content__accueil2">
+        <h3>Logement cosy au cœur de la ville</h3>
+        <div class="icons__accueil2">
+          <span><i class="fa-solid fa-bed"></i> 2 chambres</span>
+          <span><i class="fa-solid fa-bath"></i> 1 bain</span>
+          <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+        </div>
+        <div class="price__accueil2">150 € <span class="unit__accueil2">/nuit</span></div>
+        <div class="availability__accueil2">Disponible <b>30 Nov 2021</b></div>
+      </div>
+    </div>
+    <div class="card__accueil2">
+      <img src="https://picsum.photos/600/400?2" alt="">
+      <div class="card-content__accueil2">
+        <h3>Logement cosy au cœur de la ville</h3>
+        <div class="icons__accueil2">
+          <span><i class="fa-solid fa-bed"></i> 2 chambres</span>
+          <span><i class="fa-solid fa-bath"></i> 1 bain</span>
+          <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+        </div>
+        <div class="price__accueil2">150 € <span class="unit__accueil2">/nuit</span></div>
+        <a href="/pages/produit.html" class="availability__accueil2">Disponible <b>30 Nov 2021</b></a>
+      </div>
+    </div>
+    <!-- ... ajoute les autres cartes logements ... -->
+  </div>
+  <button class="arrow__accueil2 right"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<div class="btn-container__accueil2">
+  <a href="/pages/catalogue.html" class="btn__accueil2">Découvrez plus</a>
+</div>
+
+<!-- Témoignages -->
+<section class="testimonials__accueil2">
+  <h2>Des témoignages qui donnent envie de faire ses valises</h2>
+  <p class="rating__accueil2">
+    <span class="stars__accueil2">★★★★★</span> 5/5 - Basé sur 22.244 avis
+  </p>
+  <div class="carousel-container__accueil2">
+    <button class="arrow__accueil2 left"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="carousel__accueil2">
+      <!-- Exemple de témoignages -->
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?1" alt="Cabane">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=1" alt="Julia">
+            <span class="name__accueil2">Julia</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Merveilleux séjour chez Émilie avec 3 amis : déconnexion et retour aux sources !</p>
+        </div>
+      </div>
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?2" alt="Maison">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=2" alt="Alex">
+            <span class="name__accueil2">Alex</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Un hôte incroyable et un lieu qui nous ressemble. En espérant recroiser votre route !</p>
+        </div>
+      </div>
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?2" alt="Maison">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=2" alt="Alex">
+            <span class="name__accueil2">Alex</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Un hôte incroyable et un lieu qui nous ressemble. En espérant recroiser votre route !</p>
+        </div>
+      </div>
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?2" alt="Maison">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=2" alt="Alex">
+            <span class="name__accueil2">Alex</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Un hôte incroyable et un lieu qui nous ressemble. En espérant recroiser votre route !</p>
+        </div>
+      </div>
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?2" alt="Maison">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=2" alt="Alex">
+            <span class="name__accueil2">Alex</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Un hôte incroyable et un lieu qui nous ressemble. En espérant recroiser votre route !</p>
+        </div>
+      </div>
+      <div class="testimonial-card__accueil2">
+        <img src="https://picsum.photos/400/200?2" alt="Maison">
+        <div class="testimonial-content__accueil2">
+          <div class="user__accueil2">
+            <img src="https://i.pravatar.cc/50?img=2" alt="Alex">
+            <span class="name__accueil2">Alex</span>
+            <span class="note__accueil2">5/5 ⭐</span>
+          </div>
+          <p>Un hôte incroyable et un lieu qui nous ressemble. En espérant recroiser votre route !</p>
+        </div>
+      </div>
+      <!-- ... ajoute les autres témoignages ... -->
+    </div>
+    <button class="arrow__accueil2 right"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<div class="accueil__hero2">
+      <h1 class="accueil__titre">Merci de nous faire confiance.</h1>
+</div>
+</main>
+
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <div class="logo-block">
+        <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
+
+        <div class="socials">
+          <div class="icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p class="follow">Suivez-nous !</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <a href="#">GreenGo Explore</a>
+        <a href="#">Comparateur de transports</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Aide & Contact</h4>
+        <a href="#">Besoin d’aide ?</a>
+        <a href="#">Hébergeurs – Nous rejoindre</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>404</h4>
+        <a href="/pages/404.html">Aperçu 404</a>
+        <a href="#">Conditions générales</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CabinUp. Tous droits réservés.</p>
+  </div>
+</footer>
+<script src="/assets/script/script.js"></script>
+</body>
+</html>
