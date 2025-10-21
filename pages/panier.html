@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panier</title>
 
   <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Styles (✅ chemins corrigés) -->
-  <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
-  <script type="module" crossorigin src="/CabinUp1/assets/script-CTuQZY4F.js"></script>
-  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/panier-DzK3cXTf.css">
+  <!-- Styles -->
+  <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png" />
+  <script type="module" crossorigin src="/CabinUp1/assets/script-B8Z8m8gC.js"></script>
+  <link rel="stylesheet" crossorigin href="/CabinUp1/assets/panier-BOsvGYp7.css">
   <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
 </head>
 
@@ -24,7 +24,7 @@
   <!-- ================================================== -->
   <header class="navbar">
     <div class="nav-brand">
-      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo" />
     </div>
 
     <nav class="nav-links" id="nav-links">
@@ -41,7 +41,7 @@
   <!-- ================================================== -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="menu-header">
-      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo">
+      <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp logo" class="logo" />
       <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
     </div>
 
@@ -71,10 +71,12 @@
     <h1 class="panier__title">Votre panier</h1>
 
     <div class="panier__content">
+      <!-- Liste du panier -->
       <section class="panier__list" id="cart-list">
         <p>Chargement du panier...</p>
       </section>
 
+      <!-- Résumé -->
       <aside class="panier-summary">
         <div class="img ph"></div>
         <div class="panier-summary__body">
@@ -82,10 +84,12 @@
 
           <div class="summary-row">
             <div><strong>Dates</strong><br /><span id="sum-dates">—</span></div>
+            <button class="btn--grey" id="edit-dates-btn">Modifier</button>
           </div>
 
           <div class="summary-row">
             <div><strong>Voyageurs</strong><br /><span id="sum-guests">—</span></div>
+            <button class="btn--grey" id="edit-guests-btn">Modifier</button>
           </div>
 
           <div class="summary-row">
@@ -97,6 +101,46 @@
       </aside>
     </div>
   </main>
+
+  <!-- ================================================== -->
+  <!-- MODALE MODIFIER LES DATES -->
+  <!-- ================================================== -->
+  <div class="modal-overlay" id="modal-edit-dates">
+    <div class="modal-edit">
+      <h3>Modifier les dates</h3>
+
+      <label for="input-arrivee">Arrivée :</label>
+      <input type="date" id="input-arrivee" />
+
+      <label for="input-depart">Départ :</label>
+      <input type="date" id="input-depart" />
+
+      <label for="input-nights">Nombre de nuits :</label>
+      <input type="number" id="input-nights" min="1" value="1" />
+
+      <div class="modal-actions">
+        <button id="cancel-dates" class="btn--grey">Annuler</button>
+        <button id="save-dates" class="btn--green">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- MODALE MODIFIER LES VOYAGEURS -->
+  <!-- ================================================== -->
+  <div class="modal-overlay" id="modal-edit-guests">
+    <div class="modal-edit">
+      <h3>Modifier le nombre de voyageurs</h3>
+
+      <label for="input-guests">Voyageurs :</label>
+      <input type="number" id="input-guests" min="1" value="1" />
+
+      <div class="modal-actions">
+        <button id="cancel-guests" class="btn--grey">Annuler</button>
+        <button id="save-guests" class="btn--green">Enregistrer</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ================================================== -->
   <!-- MODALE DE PAIEMENT -->
@@ -119,19 +163,13 @@
           <label><input type="radio" name="objet" /> Autre</label>
         </div>
 
-        <label class="checkbox">
-          <input type="checkbox" /> Je réserve au nom de quelqu’un d’autre
-        </label>
-
         <input type="text" placeholder="Nom du voyageur" />
         <input type="email" placeholder="Email du voyageur" />
 
         <h3>Mode de paiement</h3>
         <p>Carte bancaire</p>
-
         <input type="text" placeholder="Nom sur la carte" required />
         <input type="text" placeholder="1234 1234 1234 1234" maxlength="19" required />
-
         <div class="carte-infos">
           <input type="text" placeholder="MM / YY" maxlength="5" required />
           <input type="text" placeholder="CVC" maxlength="3" required />
@@ -149,7 +187,7 @@
     <div class="footer-container">
       <div class="footer-left">
         <div class="logo-block">
-          <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo">
+          <img src="/CabinUp1/assets/logo-AhEEiVBY.png" alt="CabinUp" class="logo" />
 
           <div class="socials">
             <div class="icons">
@@ -188,6 +226,8 @@
     </div>
   </footer>
 
-  <!-- Scripts (✅ corrigés) -->
+  <!-- ================================================== -->
+  <!-- SCRIPT -->
+  <!-- ================================================== -->
 </body>
 </html>
