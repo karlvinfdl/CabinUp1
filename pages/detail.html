@@ -14,7 +14,8 @@
 
   <!-- Styles (✅ chemins relatifs corrigés) -->
   <link rel="shortcut icon" href="/CabinUp1/assets/logoarondie-Dd00jKbU.png">
-  <script type="module" crossorigin src="/CabinUp1/assets/script-B8Z8m8gC.js"></script>
+  <script type="module" crossorigin src="/CabinUp1/assets/detail-D0L2v7vR.js"></script>
+  <link rel="modulepreload" crossorigin href="/CabinUp1/assets/script-D5q-TUnU.js">
   <link rel="stylesheet" crossorigin href="/CabinUp1/assets/detail-tNbuDv7E.css">
   <link rel="stylesheet" crossorigin href="/CabinUp1/assets/style-DSpTW_1T.css">
 </head>
@@ -79,30 +80,19 @@
     <!-- Galerie -->
 <section class="gallery__detail" aria-label="Galerie de photos du logement">
   <div class="hero__detail">
-    <img id="product-image" src="/CabinUp1/assets/cabane1-Cpf24L9y.avif" alt="Cabane dans la forêt" />
+    <img id="product-image" src="../assets/images/placeholder.jpg" alt="Image du logement" />
     <a href="#galerie" class="view-all__detail">Voir toutes les photos</a>
   </div>
 
-  <!-- Lightbox toutes photos -->
+  <!-- Galerie dynamique (sera remplie par JS) -->
   <div id="galerie" class="lightbox">
     <a href="#" class="lightbox__close" aria-label="Fermer">✕</a>
-    <div class="lightbox__slides all-visible">
-      <img src="/CabinUp1/assets/cabane1-Cpf24L9y.avif" alt="Cabane 1" />
-      <img src="/CabinUp1/assets/cabane2-DKFy5hs0.avif" alt="Cabane 2" />
-      <img src="/CabinUp1/assets/cabane3-B430Xbj9.avif" alt="Cabane 3" />
-      <img src="/CabinUp1/assets/cabane4-TxY7Dp0u.avif" alt="Cabane 4" />
-      <img src="/CabinUp1/assets/cabane5-BIyGy9vh.avif" alt="Cabane 5" />
-      <img src="/CabinUp1/assets/cabane6-DGLOQg2f.avif" alt="Cabane 6" />
-      <img src="/CabinUp1/assets/cabane7-DoJGuc4M.avif" alt="Cabane 7" />
-    </div>
+    <div class="lightbox__slides all-visible" id="lightbox-slides"></div>
   </div>
 
-  <div class="thumbs__detail">
-    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane2-DKFy5hs0.avif" alt="Vue 2" /></div>
-    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane3-B430Xbj9.avif" alt="Vue 3" /></div>
-    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane4-TxY7Dp0u.avif" alt="Vue 4" /></div>
-    <div class="thumb__detail"><img src="/CabinUp1/assets/cabane5-BIyGy9vh.avif" alt="Vue 5" /></div>
-  </div>
+  <div class="thumbs__detail"></div>
+</section>
+
 </section>
 
     <!-- Section principale -->
@@ -240,17 +230,14 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
- <script>
-  window.addEventListener("load", () => {
-    if (typeof initMapDetail === "function") {
-      initMapDetail();
-    } else {
-      console.warn("⚠️ initMapDetail n’est pas encore chargé.");
-    }
-  });
-</script>
+  <!-- 1️⃣ Leaflet en premier -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- 2️⃣ Script général (menu burger, etc.) -->
+
+<!-- 3️⃣ Script spécifique à la page détail -->
+
+<!-- 4️⃣ Sécurité : initialise la carte quand tout est prêt -->
 
 </body>
 </html>
