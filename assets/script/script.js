@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = $('#cardsContainer');
   if (!container) return;
 
-  fetch("http://127.0.0.1:3001/logements")
+  fetch("/api/logements")
     .then(res => {
       if (!res.ok) throw new Error("Erreur serveur");
       return res.json();

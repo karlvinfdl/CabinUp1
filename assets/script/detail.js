@@ -17,7 +17,7 @@ if (!id) {
 const BASE_URL = "http://localhost:3001"; // ⚠️ utiliser localhost, pas 127.0.0.1
 
 // --- Chargement du logement depuis le JSON Server
-fetch(`${BASE_URL}/logements/${id}`)
+fetch("/api/logements")
   .then(res => {
     if (!res.ok) throw new Error(`Erreur ${res.status} : logement non trouvé`);
     return res.json();
