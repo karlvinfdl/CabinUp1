@@ -4,11 +4,11 @@
   "description": "��#\u0000 \u0000C\u0000a\u0000b\u0000i\u0000n\u0000U\u0000p\u00001\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "deploy": "gh-pages -d dist"
- },
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/karlvinfdl/CabinUp1.git"
@@ -22,11 +22,15 @@
   "homepage": "https://github.com/karlvinfdl/CabinUp1#readme",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.8",
+    "postcss": "^8.5.6",
     "vite": "^7.1.11"
+    
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
-    "json-server": "^1.0.0-beta.3"
+    "json-server": "^1.0.0-beta.3",
+    "tailwindcss": "^4.1.15"
   }
 }

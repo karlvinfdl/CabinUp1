@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../assets/style/style.css" />
   <link rel="stylesheet" href="../assets/style/panier.css" />
   <link rel="shortcut icon" href="../assets/images/logoarondie.png" />
@@ -16,24 +17,29 @@
     <div class="nav-brand">
       <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo" />
     </div>
+
     <nav class="nav-links" id="nav-links">
       <a href="../index.html">Accueil</a>
       <a href="../pages/catalogue.html">Catalogue</a>
-      <a href="#">Panier</a>
+      <a href="../pages/panier.html">Panier</a>
     </nav>
+
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
   </header>
 
+  <!-- MENU MOBILE -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="menu-header">
       <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo" />
       <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
     </div>
+
     <nav class="menu-links">
       <a href="../index.html">Accueil</a>
       <a href="../pages/catalogue.html">Catalogue</a>
-      <a href="#">Panier</a>
+      <a href="../pages/panier.html">Panier</a>
     </nav>
+
     <div class="menu-footer">
       <div class="socials">
         <div class="icons">
@@ -47,33 +53,38 @@
     </div>
   </div>
 
+  <!-- CONTENU PRINCIPAL -->
   <main class="panier container">
     <h1 class="panier__title">Votre panier</h1>
     <div class="panier__content">
-      <section class="panier__list" id="cart-list">
-        <p>Chargement du panier...</p>
-      </section>
+      <section id="cart-list"></section>
+
       <aside class="panier-summary">
-        <div class="img ph"></div>
+        <div class="img"></div>
         <div class="panier-summary__body">
-          <h3 id="sum-title">—</h3>
+          <h3 id="sum-title">Aucun logement sélectionné</h3>
+
           <div class="summary-row">
-            <div><strong>Dates</strong><br /><span id="sum-dates">—</span></div>
+            <div><strong>Dates</strong><br><span id="sum-dates">—</span></div>
             <button class="btn--grey" id="edit-dates-btn">Modifier</button>
           </div>
+
           <div class="summary-row">
-            <div><strong>Voyageurs</strong><br /><span id="sum-guests">—</span></div>
+            <div><strong>Voyageurs</strong><br><span id="sum-guests">—</span></div>
             <button class="btn--grey" id="edit-guests-btn">Modifier</button>
           </div>
+
           <div class="summary-row">
-            <div><strong>Prix total</strong><br /><span id="sum-total">0 €</span></div>
+            <div><strong>Prix total</strong><br><span id="sum-total">0 €</span></div>
           </div>
+
           <a href="#modal-paiement" class="btn btn--green">Procéder au paiement</a>
         </div>
       </aside>
     </div>
   </main>
 
+  <!-- MODALES -->
   <div class="modal-overlay" id="modal-edit-dates">
     <div class="modal-edit">
       <h3>Modifier les dates</h3>
@@ -104,7 +115,7 @@
 
   <div class="modal" id="modal-paiement">
     <div class="modal-content">
-      <a href="#" class="close" aria-label="Fermer la fenêtre">&times;</a>
+      <a href="#" class="close">&times;</a>
       <h2>Formulaire de paiement</h2>
       <form class="form-paiement">
         <input type="text" placeholder="Prénom" required />
@@ -117,8 +128,6 @@
           <label><input type="radio" name="objet" /> Vacances</label>
           <label><input type="radio" name="objet" /> Autre</label>
         </div>
-        <input type="text" placeholder="Nom du voyageur" />
-        <input type="email" placeholder="Email du voyageur" />
         <h3>Mode de paiement</h3>
         <p>Carte bancaire</p>
         <input type="text" placeholder="Nom sur la carte" required />
@@ -170,6 +179,132 @@
     </div>
   </footer>
 
+  <!-- ✅ VERSION ALLÉGÉE DU JS PANIER -->
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartList = $("#cart-list");
+      if (!cartList) return;
+
+      const sum = {
+        title: $("#sum-title"),
+        imgBox: $(".panier-summary .img"),
+        total: $("#sum-total"),
+        dates: $("#sum-dates"),
+        guests: $("#sum-guests")
+      };
+
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]").map((it, i) => ({
+        id: it.id ?? `item-${i}`,
+        titre: it.titre ?? it.title ?? "Sans titre",
+        prix: Number(it.prix ?? it.price ?? 0),
+        image: it.image ?? "../assets/images/placeholder.jpg",
+        ville: it.ville ?? it.location ?? "—",
+        capacite: it.capacite ?? it.capacity ?? 1,
+        nights: Number(it.nights ?? 1),
+        arrivee: it.arrivee ?? "",
+        depart: it.depart ?? "",
+        guests: Number(it.guests ?? 1)
+      }));
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      const renderEmpty = () => {
+        cartList.innerHTML = `<p style="text-align:center;">Votre panier est vide 🛒</p>`;
+        sum.title.textContent = "Aucun logement sélectionné";
+        sum.imgBox.innerHTML = "";
+        sum.total.textContent = "0 €";
+        sum.dates.textContent = "—";
+        sum.guests.textContent = "—";
+      };
+
+      if (cart.length === 0) return renderEmpty();
+
+      const renderList = () => {
+        cartList.innerHTML = cart.map((it, i) => `
+  <article class="panier-card" data-idx="${i}">
+    <div class="img"><img src="${it.image}" alt="${it.titre}"></div>
+    <div class="panier-card__body">
+      <h3>${it.titre}</h3>
+      <div class="features">
+        <span><i class="fas fa-location-dot"></i> ${it.ville}</span>
+        <span><i class="fas fa-user-group"></i> ${it.capacite} pers.</span>
+      </div>
+      <div class="panier-card__footer">
+        <p><strong>${it.prix} €</strong> / nuit</p>
+        <button class="panier-card__remove" data-idx="${i}" title="Supprimer du panier">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </article>
+`).join("");
+
+      };
+
+      const updateSummary = (it) => {
+        sum.title.textContent = it.titre;
+        sum.total.textContent = `${it.prix} € / nuit`;
+        sum.imgBox.innerHTML = `<img src="${it.image}" alt="${it.titre}">`;
+        sum.dates.textContent = it.arrivee && it.depart
+          ? `${it.arrivee} → ${it.depart} (${it.nights} nuit${it.nights > 1 ? "s" : ""})`
+          : "Non renseignées";
+        sum.guests.textContent = `${it.guests} voyageur${it.guests > 1 ? "s" : ""}`;
+      };
+
+      const highlight = (i) => {
+        document.querySelectorAll(".panier-card").forEach(c => c.classList.remove("active"));
+        const el = document.querySelector(`.panier-card[data-idx="${i}"]`);
+        if (el) el.classList.add("active");
+      };
+
+      renderList();
+      let selected = 0;
+      updateSummary(cart[selected]);
+      highlight(selected);
+
+      cartList.addEventListener("click", (e) => {
+        const idx = e.target.closest(".panier-card")?.dataset.idx;
+        if (!idx) return;
+        const btn = e.target.closest(".panier-card__remove");
+        if (btn) {
+          cart.splice(idx, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          return cart.length ? (renderList(), updateSummary(cart[0]), highlight(0)) : renderEmpty();
+        }
+        selected = Number(idx);
+        updateSummary(cart[selected]);
+        highlight(selected);
+      });
+
+      const mDates = $("#modal-edit-dates");
+      $("#edit-dates-btn")?.addEventListener("click", () => mDates.classList.add("active"));
+      $("#cancel-dates")?.addEventListener("click", () => mDates.classList.remove("active"));
+      $("#save-dates")?.addEventListener("click", () => {
+        Object.assign(cart[selected], {
+          arrivee: $("#input-arrivee").value,
+          depart: $("#input-depart").value,
+          nights: Number($("#input-nights").value || 1)
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateSummary(cart[selected]);
+        mDates.classList.remove("active");
+      });
+
+      const mGuests = $("#modal-edit-guests");
+      $("#edit-guests-btn")?.addEventListener("click", () => mGuests.classList.add("active"));
+      $("#cancel-guests")?.addEventListener("click", () => mGuests.classList.remove("active"));
+      $("#save-guests")?.addEventListener("click", () => {
+        cart[selected].guests = Number($("#input-guests").value || 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateSummary(cart[selected]);
+        mGuests.classList.remove("active");
+      });
+    });
+  </script>
+
+  <script src="https://kit.fontawesome.com/a2e0ad4f0b.js" crossorigin="anonymous"></script>
   <script type="module" src="../assets/script/script.js"></script>
 </body>
 </html>
