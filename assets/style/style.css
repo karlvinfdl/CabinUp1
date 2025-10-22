@@ -51,11 +51,11 @@ h1,h2,h3{font-family:"Epunda Slab",Georgia,serif;font-weight:500;text-align:cent
 
 
 /* =============== RESPONSIVE =============== */
-/* RESPONSIVE Navbar */
+/* RESPONSIVE */
 @media(max-width:767px){.nav-links{display:none;}.nav-toggle{display:block;}.socials {justify-content:center;}}
 @media(min-width:768px){.nav-links{display:flex!important;margin-right:4rem;gap:4rem;}.nav-toggle{display:none;}}
 
-/* RESPONSIVE Footer */
+/* RESPONSIVE */
 @media(max-width:768px){
   .footer-container{flex-direction:column;align-items:center;text-align:center;gap:2rem;}
   .footer-right{flex-direction:column;gap:2rem;}

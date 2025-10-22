@@ -1,58 +1,39 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
-
-     <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style/style.css" />
-  <link rel="stylesheet" href="/assets/style/panier.css" />
-  <link rel="shortcut icon" href="/assets/images/logoarondie.png">
-  </head>
-  <!-- ==================================================
-  <-- NAVBAR -->
-  <!-- ================================================== -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Epunda+Slab:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style/style.css" />
+  <link rel="stylesheet" href="../assets/style/panier.css" />
+  <link rel="shortcut icon" href="../assets/images/logoarondie.png" />
+</head>
+<body>
   <header class="navbar">
     <div class="nav-brand">
-      <img src="/assets/images/logo.png" alt="CabinUp logo" class="logo">
+      <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo" />
     </div>
-
-    
     <nav class="nav-links" id="nav-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
       <a href="#">Panier</a>
     </nav>
-
-    
     <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
   </header>
 
- 
-
-  <body>
-   <!-- ================================================== -->
-  <!-- MENU PLEIN ÉCRAN MOBILE -->
-  <!-- ================================================== -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="menu-header">
-      <img src="/assets/images/logo.png" alt="CabinUp logo" class="logo">
+      <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo" />
       <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
     </div>
-
     <nav class="menu-links">
-      <a href="/index.html">Accueil</a>
-      <a href="/pages/catalogue.html">Catalogue</a>
+      <a href="../index.html">Accueil</a>
+      <a href="../pages/catalogue.html">Catalogue</a>
       <a href="#">Panier</a>
     </nav>
-
     <div class="menu-footer">
       <div class="socials">
         <div class="icons">
@@ -60,140 +41,135 @@
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-        <p class="follow">Suivez-nous!</p>
+        <p class="follow">Suivez-nous !</p>
       </div>
       <p>© 2025 CabinUp</p>
     </div>
   </div>
 
-<!-- ================================================== -->
-  <!-- CONTENU DU PANIER -->
-  <!-- ================================================== -->
   <main class="panier container">
     <h1 class="panier__title">Votre panier</h1>
-
     <div class="panier__content">
-      <!-- Liste des logements -->
       <section class="panier__list" id="cart-list">
         <p>Chargement du panier...</p>
       </section>
-
-      <!-- Résumé du panier -->
       <aside class="panier-summary">
         <div class="img ph"></div>
         <div class="panier-summary__body">
           <h3 id="sum-title">—</h3>
-
           <div class="summary-row">
             <div><strong>Dates</strong><br /><span id="sum-dates">—</span></div>
+            <button class="btn--grey" id="edit-dates-btn">Modifier</button>
           </div>
-
           <div class="summary-row">
             <div><strong>Voyageurs</strong><br /><span id="sum-guests">—</span></div>
+            <button class="btn--grey" id="edit-guests-btn">Modifier</button>
           </div>
-
           <div class="summary-row">
             <div><strong>Prix total</strong><br /><span id="sum-total">0 €</span></div>
           </div>
-
           <a href="#modal-paiement" class="btn btn--green">Procéder au paiement</a>
         </div>
       </aside>
     </div>
   </main>
 
-  <!-- ================================================== -->
-  <!-- MODALE DE PAIEMENT -->
-  <!-- ================================================== -->
+  <div class="modal-overlay" id="modal-edit-dates">
+    <div class="modal-edit">
+      <h3>Modifier les dates</h3>
+      <label for="input-arrivee">Arrivée :</label>
+      <input type="date" id="input-arrivee" />
+      <label for="input-depart">Départ :</label>
+      <input type="date" id="input-depart" />
+      <label for="input-nights">Nombre de nuits :</label>
+      <input type="number" id="input-nights" min="1" value="1" />
+      <div class="modal-actions">
+        <button id="cancel-dates" class="btn--grey">Annuler</button>
+        <button id="save-dates" class="btn--green">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-edit-guests">
+    <div class="modal-edit">
+      <h3>Modifier le nombre de voyageurs</h3>
+      <label for="input-guests">Voyageurs :</label>
+      <input type="number" id="input-guests" min="1" value="1" />
+      <div class="modal-actions">
+        <button id="cancel-guests" class="btn--grey">Annuler</button>
+        <button id="save-guests" class="btn--green">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal" id="modal-paiement">
     <div class="modal-content">
       <a href="#" class="close" aria-label="Fermer la fenêtre">&times;</a>
       <h2>Formulaire de paiement</h2>
-
       <form class="form-paiement">
-        <!-- Informations personnelles -->
         <input type="text" placeholder="Prénom" required />
         <input type="text" placeholder="Nom de famille" required />
         <input type="email" placeholder="Email" required />
         <input type="tel" placeholder="Numéro de téléphone" required />
-
         <h3>Objet du séjour</h3>
         <div class="radio-group">
           <label><input type="radio" name="objet" checked /> Voyage d’affaires</label>
           <label><input type="radio" name="objet" /> Vacances</label>
           <label><input type="radio" name="objet" /> Autre</label>
         </div>
-
-        <label class="checkbox">
-          <input type="checkbox" /> Je réserve au nom de quelqu’un d’autre
-        </label>
-
         <input type="text" placeholder="Nom du voyageur" />
         <input type="email" placeholder="Email du voyageur" />
-
         <h3>Mode de paiement</h3>
         <p>Carte bancaire</p>
-
         <input type="text" placeholder="Nom sur la carte" required />
         <input type="text" placeholder="1234 1234 1234 1234" maxlength="19" required />
-
         <div class="carte-infos">
           <input type="text" placeholder="MM / YY" maxlength="5" required />
           <input type="text" placeholder="CVC" maxlength="3" required />
         </div>
-
         <button class="btn-payer" type="submit">Payer</button>
       </form>
     </div>
   </div>
 
-<!-- ================================================== -->
-<!-- FOOTER -->
-<!-- ================================================== -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-left">
-      <div class="logo-block">
-        <img src="/assets/images/logo.png" alt="CabinUp" class="logo">
-
-        <div class="socials">
-          <div class="icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo-block">
+          <img src="../assets/images/logo.png" alt="CabinUp" class="logo" />
+          <div class="socials">
+            <div class="icons">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="follow">Suivez-nous !</p>
           </div>
-          <p class="follow">Suivez-nous !</p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <a href="#">GreenGo Explore</a>
+          <a href="#">Comparateur de transports</a>
+        </div>
+        <div class="footer-col">
+          <h4>Aide & Contact</h4>
+          <a href="#">Besoin d’aide ?</a>
+          <a href="#">Hébergeurs – Nous rejoindre</a>
+        </div>
+        <div class="footer-col">
+          <h4>404</h4>
+          <a href="../pages/404.html">Aperçu 404</a>
+          <a href="#">Conditions générales</a>
         </div>
       </div>
     </div>
-
-    <div class="footer-right">
-      <div class="footer-col">
-        <h4>À propos</h4>
-        <a href="#">GreenGo Explore</a>
-        <a href="#">Comparateur de transports</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Aide & Contact</h4>
-        <a href="#">Besoin d’aide ?</a>
-        <a href="#">Hébergeurs – Nous rejoindre</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>404</h4>
-        <a href="/pages/404.html">Aperçu 404</a>
-        <a href="#">Conditions générales</a>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2025 CabinUp. Tous droits réservés.</p>
     </div>
+  </footer>
 
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 CabinUp. Tous droits réservés.</p>
-  </div>
-</footer>
-<script src="/assets/script/script.js"></script>
+  <script type="module" src="../assets/script/script.js"></script>
 </body>
 </html>

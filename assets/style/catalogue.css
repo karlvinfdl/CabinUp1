@@ -7,8 +7,6 @@
 .accueil__label{font-weight:600;color:var(--green);font-size:14px;margin-bottom:4px;}
 .accueil__seg input{border:0;background:transparent;outline:none;font-size:14px;color:#333;width:100%;cursor:pointer;}
 .accueil__cta{background:var(--green);color:#fff;border:2px solid var(--green);font-weight:700;padding:20px 24px;border-radius:50px;cursor:pointer;margin:6px;transition:background .2s ease,color .2s ease;}
-
-
 /* ========================================================================== */
 /* POPUP MOBILE PLEIN ÉCRAN */
 /* ========================================================================== */
@@ -44,15 +42,12 @@
 .accueil__popup-footer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #eee;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;margin-bottom: 20px;}
 .accueil__clear{background:transparent;border:0;color:#000;font-weight:700;text-decoration:underline;cursor:pointer;}
 .accueil__cta--big{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:16px;}
-
-
 /* ========================================================================== */
 /* LAYOUT PRINCIPAL (CATALOGUE + MAP) */
 /* ========================================================================== */
 main{display:grid;grid-template-columns:65% 35%;gap:1.5rem;padding:2rem 3rem;background:#fff;min-height:calc(100vh - 150px);box-sizing:border-box;}
 .catalogue{display:flex;flex-direction:column;gap:1.5rem;overflow-y:auto;height:100%;}
 .catalogue h2{text-align: left;font-family: "Epunda Slab", Georgia, serif;font-weight: 500;font-size: 2.2rem;color: #2E5E4E;}
-
 /* ========================================================================== */
 /* GRILLE DES CARTES PRODUITS */
 /* ========================================================================== */
@@ -66,14 +61,12 @@ main{display:grid;grid-template-columns:65% 35%;gap:1.5rem;padding:2rem 3rem;bac
 .available{display:inline-block;margin-top:.3rem;padding:.25rem .6rem;background:var(--green);color:#fff;border-radius:6px;font-size:.75rem;}
 .price{text-align:right;font-weight:800;font-size:.95rem;color:#2E5E4E;white-space:nowrap;}
 .price::after{content:" / nuit";font-weight:500;color:#555;font-size:.85rem;}
-
 /* ========================================================================== */
 /* MAP */
 /* ========================================================================== */
 .map{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);height:100%; position: relative;z-index: 1; background-color: var(--beige);}
 #map{flex:1;width:100%;height:100%;min-height:500px;}
 .price-marker{background:#fff;border:2px solid var(--green);border-radius:10px;padding:4px 8px;font-size:14px;font-weight:bold;color:var(--green);box-shadow:0 2px 6px rgba(0,0,0,.2);width: 55px;}
-
 /* ========================================================================== */
 /* PAGINATION */
 /* ========================================================================== */
@@ -82,47 +75,39 @@ main{display:grid;grid-template-columns:65% 35%;gap:1.5rem;padding:2rem 3rem;bac
 .pagination button:hover{background:var(--green);color:#fff;transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
 .pagination button.active{background:var(--green);color:#fff;border-color:var(--green);transform:none;box-shadow:0 2px 6px rgba(0,0,0,.15);}
 .pagination button:focus{outline:2px solid var(--green);outline-offset:2px;}
-
-
-
 /* ========================================================================== */
 /* 📱 VERSION MOBILE - Catalogue (uniquement bouton Rechercher centré) */
 /* ========================================================================== */
 @media(max-width:768px){
-  main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0px;gap:1rem;width:100%;}
-  section.catalogue{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
-  section.catalogue h2{font-size:2.2rem;text-align:center;width:100%;margin:1rem 0 .5rem;color:#1e5c43;}
-
-  /* Barre de recherche simplifiée */
-  .catalogue .accueil__search{background:none!important;box-shadow:none!important;border:none!important;display:flex;align-items:center;justify-content:center;padding:0;width:100%;}
-  .catalogue .accueil__seg{display:none!important;}
-  .catalogue .accueil__cta{display:inline-block;width:80%;background:var(--green);color:#fff;border:2px solid var(--green);font-weight:700;padding:14px 32px;border-radius:50px;cursor:pointer;font-size:1rem;text-align:center;transition:.2s;}
-  .catalogue .accueil__cta--big{width: 60%;}
-  .catalogue .accueil__cta:hover{background:#144432;}
-
-  /* Cartes */
-  .cards{display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;max-width:420px;padding:1%;}
-  .card{width:90%;display:flex;flex-direction:row;background:#f5f5f5;border-radius:60px 18px 18px 0;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;transition:transform .2s ease;margin:0 auto;}
-  .card:hover{transform:translateY(-3px);}
-  .card img{width:40%;height:100%;object-fit:cover;}
-  .card-body{padding:.8rem .5rem;display:flex;flex-direction:column;justify-content:space-between;}
-  .card-body h3{font-size:1rem;margin:0 0 .4rem;}
-  .available{background:#1e5c43;color:#fff;border-radius:20px;padding:.2rem .8rem;font-size:.8rem;margin-top:.4rem;display:inline-block;}
-  .price{font-weight:600;color:#000;font-size:.95rem;margin-top:.4rem;}
-
-  /* Pagination */
-  .pagination{margin-top:1.2rem;display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;}
-  .pagination button{background:#1e5c43;color:#fff;border:none;border-radius:50px;padding:.6rem 1.2rem;font-size:1rem;cursor:pointer;transition:background .2s ease;}
-  .pagination button:hover{background:#144432;}
-  .pagination button.active{background:#144432;font-weight:700;}
-
-  /* Carte Leaflet */
-  .map{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem;max-width: 90%;background-color: var(--beige);}
-  #map{width:100%;max-width:380px;height:240px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);}
-
-  /* Footer */
-  footer{padding:2rem 1rem;text-align:center;}
-  .footer-container{flex-direction:column;align-items:center;gap:1.5rem;}
-  .footer-right{flex-direction:column;align-items:center;gap:1rem;}
-  .footer-col h4,.footer-col a{text-align:center;}
+main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0px;gap:1rem;width:100%;}
+section.catalogue{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+section.catalogue h2{font-size:2.2rem;text-align:center;width:100%;margin:1rem 0 .5rem;color:#1e5c43;}
+/* Barre de recherche simplifiée */
+.catalogue .accueil__search{background:none!important;box-shadow:none!important;border:none!important;display:flex;align-items:center;justify-content:center;padding:0;width:100%;}
+.catalogue .accueil__seg{display:none!important;}
+.catalogue .accueil__cta{display:inline-block;width:80%;background:var(--green);color:#fff;border:2px solid var(--green);font-weight:700;padding:14px 32px;border-radius:50px;cursor:pointer;font-size:1rem;text-align:center;transition:.2s;}
+.catalogue .accueil__cta--big{width: 60%;}
+.catalogue .accueil__cta:hover{background:#144432;}
+/* Cartes */
+.cards{display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;max-width:420px;padding:1%;}
+.card{width:90%;display:flex;flex-direction:row;background:#f5f5f5;border-radius:60px 18px 18px 0;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;transition:transform .2s ease;margin:0 auto;}
+.card:hover{transform:translateY(-3px);}
+.card img{width:40%;height:100%;object-fit:cover;}
+.card-body{padding:.8rem .5rem;display:flex;flex-direction:column;justify-content:space-between;}
+.card-body h3{font-size:1rem;margin:0 0 .4rem;}
+.available{background:#1e5c43;color:#fff;border-radius:20px;padding:.2rem .8rem;font-size:.8rem;margin-top:.4rem;display:inline-block;}
+.price{font-weight:600;color:#000;font-size:.95rem;margin-top:.4rem;}
+/* Pagination */
+.pagination{margin-top:1.2rem;display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;}
+.pagination button{background:#1e5c43;color:#fff;border:none;border-radius:50px;padding:.6rem 1.2rem;font-size:1rem;cursor:pointer;transition:background .2s ease;}
+.pagination button:hover{background:#144432;}
+.pagination button.active{background:#144432;font-weight:700;}
+/* Carte Leaflet */
+.map{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem;max-width: 90%;background-color: var(--beige);}
+#map{width:100%;max-width:380px;height:240px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+/* Footer */
+footer{padding:2rem 1rem;text-align:center;}
+.footer-container{flex-direction:column;align-items:center;gap:1.5rem;}
+.footer-right{flex-direction:column;align-items:center;gap:1rem;}
+.footer-col h4,.footer-col a{text-align:center;}
 }

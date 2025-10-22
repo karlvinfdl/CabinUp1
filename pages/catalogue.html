@@ -14,10 +14,11 @@
 
     
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/style/style.css" />
-  <link rel="stylesheet" href="/assets/style/catalogue.css" />
-  <link rel="shortcut icon" href="/assets/images/logoarondie.png">
-  
+  <link rel="stylesheet" href="../assets/style/style.css" />
+<link rel="stylesheet" href="../assets/style/catalogue.css" />
+<link rel="shortcut icon" href="../assets/images/logoarondie.png">
+
+
 </head>
 <body>
 
@@ -25,333 +26,188 @@
   <-- NAVBAR -->
   <!-- ================================================== -->
   <header class="navbar">
-    <div class="nav-brand">
-      <img src="/assets/images/logo.png" alt="CabinUp logo" class="logo">
-    </div>
+  <div class="nav-brand">
+    <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo">
+  </div>
 
-    
-    <nav class="nav-links" id="nav-links">
-      <a href="/index.html">Accueil</a>
-      <a href="#">Catalogue</a>
-      <a href="/pages/panier.html">Panier</a>
-    </nav>
+  <nav class="nav-links" id="nav-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../pages/catalogue.html">Catalogue</a>
+    <a href="../pages/panier.html">Panier</a>
+  </nav>
 
-    
-    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
-  </header>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+</header>
 
   
   <!-- ================================================== -->
   <!-- MENU PLEIN ÉCRAN MOBILE -->
   <!-- ================================================== -->
   <div class="mobile-menu" id="mobile-menu">
-    <div class="menu-header">
-      <img src="/assets/images/logo.png" alt="CabinUp logo" class="logo">
-      <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
-    </div>
-
-    <nav class="menu-links">
-      <a href="/index.html">Accueil</a>
-      <a href="#">Catalogue</a>
-      <a href="/pages/panier.html">Panier</a>
-    </nav>
-
-    <div class="menu-footer">
-      <div class="socials">
-        <div class="icons">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <p class="follow">Suivez-nous!</p>
-      </div>
-      <p>© 2025 CabinUp</p>
-    </div>
+  <div class="menu-header">
+    <img src="../assets/images/logo.png" alt="CabinUp logo" class="logo">
+    <button class="menu-close" id="menu-close" aria-label="Fermer le menu">✕</button>
   </div>
+
+  <nav class="menu-links">
+    <a href="../index.html">Accueil</a>
+    <a href="../pages/catalogue.html">Catalogue</a>
+    <a href="../pages/panier.html">Panier</a>
+  </nav>
+
+  <div class="menu-footer">
+    <div class="socials">
+      <div class="icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="follow">Suivez-nous!</p>
+    </div>
+    <p>© 2025 CabinUp</p>
+  </div>
+</div>
+
 
 
   <!-- ===================== MAIN ===================== -->
   <main>
-    <!-- Catalogue -->
-    <section class="catalogue">
-      <h2>Catalogue-Produits</h2>
+   <!-- ===================== CATALOGUE ===================== -->
+<section class="catalogue">
+  <h2>Catalogue des logements</h2>
 
-      <!-- ✅ BARRE DE RECHERCHE DÉPLACÉE ICI -->
-      <form class="accueil__search" onsubmit="return false;">
-        <!-- Destination -->
-        <div class="accueil__seg" data-type="dest">
-          <div class="accueil__label">Destination</div>
-          <input type="text" id="dest-desktop" placeholder="Où voulez-vous aller ?" />
+  <!-- ✅ BARRE DE RECHERCHE -->
+  <form class="accueil__search" onsubmit="return false;">
+    <!-- Destination -->
+    <div class="accueil__seg" data-type="dest">
+      <div class="accueil__label">Destination</div>
+      <input type="text" id="dest-desktop" placeholder="Où voulez-vous aller ?" />
+    </div>
+
+    <!-- Arrivée -->
+    <div class="accueil__seg" data-type="arrival">
+      <div class="accueil__label">Arrivée</div>
+      <input type="text" id="arrival" placeholder="Date d'arrivée" readonly />
+    </div>
+
+    <!-- Départ -->
+    <div class="accueil__seg" data-type="departure">
+      <div class="accueil__label">Départ</div>
+      <input type="text" id="departure" placeholder="Date de départ" readonly />
+    </div>
+
+    <!-- Voyageurs -->
+    <div class="accueil__seg" data-type="voyageurs">
+      <div class="accueil__label">Voyageurs</div>
+      <input type="text" id="voyageurs" placeholder="2 voyageurs" readonly />
+    </div>
+
+    <!-- CTA -->
+    <button type="submit" id="search-btn" class="accueil__cta">
+      <i class="fa fa-search" style="margin-right:8px;"></i> Rechercher
+    </button>
+  </form>
+
+  <!-- ===================== POPUP MOBILE ===================== -->
+  <div id="mobile-popup" class="accueil__popup" aria-hidden="true">
+    <div class="accueil__popup-content">
+      <button id="popup-close" class="accueil__popup-close" aria-label="Fermer">✕</button>
+
+      <!-- Section Où ? -->
+      <section class="accueil__popup-card">
+        <h2 class="accueil__popup-title">Où ?</h2>
+        <label class="accueil__mobile-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79L20 21.5 21.5 20 15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input id="dest-mobile" type="text" placeholder="Rechercher une destination" />
+        </label>
+      </section>
+
+      <!-- Section Quand ? -->
+      <section class="accueil__popup-card">
+        <h2 class="accueil__popup-title">Quand ?</h2>
+        <div class="accueil__segmented">
+          <button type="button" class="accueil__segmented-btn is-active">Dates</button>
+          <button type="button" class="accueil__segmented-btn">Mois</button>
+        </div>
+        <div class="accueil__mcal">
+          <div class="accueil__mcal-head">
+            <button id="m-prev" type="button" class="accueil__mnav">&lt;</button>
+            <div class="accueil__mcal-title">
+              <span id="m-month">Mois</span> <span id="m-year">2025</span>
+            </div>
+            <button id="m-next" type="button" class="accueil__mnav">&gt;</button>
+          </div>
+          <div class="accueil__mcal-week"></div>
+          <div id="m-grid" class="accueil__mcal-grid"></div>
+        </div>
+      </section>
+
+      <!-- Section Qui ? -->
+      <section class="accueil__popup-card">
+        <h2 class="accueil__popup-title">Qui ?</h2>
+
+        <div class="accueil__row" data-scope="mob" data-type="adults">
+          <div>
+            <div class="accueil__row-title">Adultes</div>
+            <div class="accueil__row-sub">18 ans et plus</div>
+          </div>
+          <div class="accueil__row-ctrl">
+            <button class="accueil__ctl -minus">−</button>
+            <span class="accueil__num">2</span>
+            <button class="accueil__ctl -plus">+</button>
+          </div>
         </div>
 
-        <!-- Arrivée -->
-        <div class="accueil__seg" data-type="arrival">
-          <div class="accueil__label">Arrivée</div>
-          <input type="text" id="arrival" placeholder="Date d'arrivée" readonly />
+        <div class="accueil__row" data-scope="mob" data-type="children">
+          <div>
+            <div class="accueil__row-title">Enfants</div>
+            <div class="accueil__row-sub">De 2 à 17 ans</div>
+          </div>
+          <div class="accueil__row-ctrl">
+            <button class="accueil__ctl -minus">−</button>
+            <span class="accueil__num">0</span>
+            <button class="accueil__ctl -plus">+</button>
+          </div>
         </div>
 
-        <!-- Départ -->
-        <div class="accueil__seg" data-type="departure">
-          <div class="accueil__label">Départ</div>
-          <input type="text" id="departure" placeholder="Date de départ" readonly />
+        <div class="accueil__row" data-scope="mob" data-type="pets">
+          <div>
+            <div class="accueil__row-title">Animaux domestiques</div>
+          </div>
+          <div class="accueil__row-ctrl">
+            <button class="accueil__ctl -minus">−</button>
+            <span class="accueil__num">0</span>
+            <button class="accueil__ctl -plus">+</button>
+          </div>
         </div>
+      </section>
+    </div>
 
-        <!-- Voyageurs -->
-        <div class="accueil__seg" data-type="voyageurs">
-          <div class="accueil__label">Voyageurs</div>
-          <input type="text" id="voyageurs" placeholder="2 voyageurs" readonly />
-        </div>
-
-        <!-- CTA -->
-        <button type="submit" id="search-btn" class="accueil__cta"><i class="fa fa-search" style="margin-right:8px;"></i> Rechercher</button>
-      </form>
-
-      <!-- ===================== POPUP MOBILE ===================== -->
-<div id="mobile-popup" class="accueil__popup" aria-hidden="true">
-  <div class="accueil__popup-content">
-    <button id="popup-close" class="accueil__popup-close" aria-label="Fermer">✕</button>
-
-    <!-- Section Où ? -->
-    <section class="accueil__popup-card">
-      <h2 class="accueil__popup-title">Où ?</h2>
-      <label class="accueil__mobile-search">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79L20 21.5 21.5 20 15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-        </svg>
-        <input id="dest-mobile" type="text" placeholder="Rechercher une destination" />
-      </label>
-    </section>
-
-    <!-- Section Quand ? -->
-    <section class="accueil__popup-card">
-      <h2 class="accueil__popup-title">Quand ?</h2>
-      <div class="accueil__segmented">
-        <button type="button" class="accueil__segmented-btn is-active">Dates</button>
-        <button type="button" class="accueil__segmented-btn">Mois</button>
-      </div>
-      <div class="accueil__mcal">
-        <div class="accueil__mcal-head">
-          <button id="m-prev" type="button" class="accueil__mnav">&lt;</button>
-          <div class="accueil__mcal-title"><span id="m-month">Mois</span> <span id="m-year">2025</span></div>
-          <button id="m-next" type="button" class="accueil__mnav">&gt;</button>
-        </div>
-        <div class="accueil__mcal-week"></div>
-        <div id="m-grid" class="accueil__mcal-grid"></div>
-      </div>
-    </section>
-
-    <!-- Section Qui ? -->
-    <section class="accueil__popup-card">
-      <h2 class="accueil__popup-title">Qui ?</h2>
-
-      <div class="accueil__row" data-scope="mob" data-type="adults">
-        <div>
-          <div class="accueil__row-title">Adultes</div>
-          <div class="accueil__row-sub">18 ans et plus</div>
-        </div>
-        <div class="accueil__row-ctrl">
-          <button class="accueil__ctl -minus">−</button>
-          <span class="accueil__num">2</span>
-          <button class="accueil__ctl -plus">+</button>
-        </div>
-      </div>
-
-      <div class="accueil__row" data-scope="mob" data-type="children">
-        <div>
-          <div class="accueil__row-title">Enfants</div>
-          <div class="accueil__row-sub">De 2 à 17 ans</div>
-        </div>
-        <div class="accueil__row-ctrl">
-          <button class="accueil__ctl -minus">−</button>
-          <span class="accueil__num">0</span>
-          <button class="accueil__ctl -plus">+</button>
-        </div>
-      </div>
-
-      <div class="accueil__row" data-scope="mob" data-type="pets">
-        <div>
-          <div class="accueil__row-title">Animaux domestiques</div>
-        </div>
-        <div class="accueil__row-ctrl">
-          <button class="accueil__ctl -minus">−</button>
-          <span class="accueil__num">0</span>
-          <button class="accueil__ctl -plus">+</button>
-        </div>
-      </div>
-    </section>
+    <div class="accueil__popup-footer">
+      <button id="popup-clear" class="accueil__clear">Tout effacer</button>
+      <button id="popup-search" class="accueil__cta accueil__cta--big">Rechercher</button>
+    </div>
   </div>
 
-  <div class="accueil__popup-footer">
-    <button id="popup-clear" class="accueil__clear">Tout effacer</button>
-    <button id="popup-search" class="accueil__cta accueil__cta--big">Rechercher</button>
+  <!-- ===================== CARTES (chargées dynamiquement depuis JSON Server) ===================== -->
+  <div class="cards" id="cardsContainer">
+    <!-- 🪄 Les logements seront chargés automatiquement ici -->
   </div>
-</div>
 
-      <div class="cards" id="cardsContainer">
+  <!-- ✅ Pagination -->
+  <div class="pagination" id="pagination"></div>
+</section>
 
-        
+<!-- ===================== CARTE LEAFLET ===================== -->
+<section class="map">
+  <div class="map-header">
+    <h3>Carte des logements</h3>
+  </div>
+  <div id="map"></div>
+</section>
 
-  <a href="/pages/detail.html?ville=Lyon" class="card" data-ville="Lyon" data-lat="45.75" data-lng="4.85" data-prix="120 €" data-dispo="28 Nov 2021">
-    <img src="/assets/images/foret/cabane1.avif" alt="Lyon">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Lyon</h3>
-        <p>1 chambre • 1 bain • WiFi</p>
-        <span class="available">Disponible 28 Nov 2021</span>
-      </div>
-      <p class="price">120 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Paris" class="card" data-ville="Paris" data-lat="48.8566" data-lng="2.3522" data-prix="200 €" data-dispo="15 Dec 2021">
-    <img src="/assets/images/foret/cabane2.avif" alt="Paris">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Paris</h3>
-        <p>2 chambres • 1 bain • WiFi</p>
-        <span class="available">Disponible 15 Dec 2021</span>
-      </div>
-      <p class="price">200 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Marseille" class="card" data-ville="Marseille" data-lat="43.2965" data-lng="5.3698" data-prix="150 €" data-dispo="10 Jan 2022">
-    <img src="/assets/images/foret/cabane3.avif" alt="Marseille">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Marseille</h3>
-        <p>1 chambre • 1 bain • WiFi</p>
-        <span class="available">Disponible 10 Jan 2022</span>
-      </div>
-      <p class="price">150 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Nice" class="card" data-ville="Nice" data-lat="43.7102" data-lng="7.2620" data-prix="180 €" data-dispo="05 Fév 2022">
-    <img src="/assets/images/foret/cabane4.avif" alt="Nice">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Nice</h3>
-        <p>2 chambres • 2 bains • Vue mer</p>
-        <span class="available">Disponible 05 Fév 2022</span>
-      </div>
-      <p class="price">180 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Toulouse" class="card" data-ville="Toulouse" data-lat="43.6045" data-lng="1.4442" data-prix="110 €" data-dispo="20 Fév 2022">
-    <img src="/assets/images/foret/cabane5.avif" alt="Toulouse">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Toulouse</h3>
-        <p>1 chambre • 1 bain • Balcon</p>
-        <span class="available">Disponible 20 Fév 2022</span>
-      </div>
-      <p class="price">110 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Bordeaux" class="card" data-ville="Bordeaux" data-lat="44.8378" data-lng="-0.5792" data-prix="160 €" data-dispo="01 Mar 2022">
-    <img src="/assets/images/foret/cabane6.avif" alt="Bordeaux">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Bordeaux</h3>
-        <p>3 chambres • 2 bains • Terrasse</p>
-        <span class="available">Disponible 01 Mar 2022</span>
-      </div>
-      <p class="price">160 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Lille" class="card" data-ville="Lille" data-lat="50.6292" data-lng="3.0573" data-prix="95 €" data-dispo="10 Mar 2022">
-    <img src="/assets/images/foret/cabane7.avif" alt="Lille">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Lille</h3>
-        <p>1 chambre • WiFi • Centre-ville</p>
-        <span class="available">Disponible 10 Mar 2022</span>
-      </div>
-      <p class="price">95 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Strasbourg" class="card" data-ville="Strasbourg" data-lat="48.5734" data-lng="7.7521" data-prix="140 €" data-dispo="18 Mar 2022">
-    <img src="/assets/images/foret/cabane8.avif" alt="Strasbourg">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Strasbourg</h3>
-        <p>2 chambres • 1 bain • Vue cathédrale</p>
-        <span class="available">Disponible 18 Mar 2022</span>
-      </div>
-      <p class="price">140 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Montpellier" class="card" data-ville="Montpellier" data-lat="43.6119" data-lng="3.8777" data-prix="130 €" data-dispo="25 Mar 2022">
-    <img src="/assets/images/foret/cabane9.avif" alt="Montpellier">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Montpellier</h3>
-        <p>1 chambre • 1 bain • Clim</p>
-        <span class="available">Disponible 25 Mar 2022</span>
-      </div>
-      <p class="price">130 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Nantes" class="card" data-ville="Nantes" data-lat="47.2184" data-lng="-1.5536" data-prix="125 €" data-dispo="01 Avr 2022">
-    <img src="/assets/images/foret/cabane10.avif" alt="Nantes">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Nantes</h3>
-        <p>2 chambres • 1 bain • Jardin</p>
-        <span class="available">Disponible 01 Avr 2022</span>
-      </div>
-      <p class="price">125 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Dijon" class="card" data-ville="Dijon" data-lat="47.3220" data-lng="5.0415" data-prix="100 €" data-dispo="10 Avr 2022">
-    <img src="/assets/images/foret/cabane11.avif" alt="Dijon">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Dijon</h3>
-        <p>1 chambre • 1 bain • Parking</p>
-        <span class="available">Disponible 10 Avr 2022</span>
-      </div>
-      <p class="price">100 €/nuit</p>
-    </div>
-  </a>
-
-  <a href="/pages/detail.html?ville=Clermont-Ferrand" class="card" data-ville="Clermont-Ferrand" data-lat="45.7772" data-lng="3.0870" data-prix="115 €" data-dispo="15 Avr 2022">
-    <img src="/assets/images/foret/cabane12.avif" alt="Clermont-Ferrand">
-    <div class="card-body">
-      <div class="card-content">
-        <h3>Clermont-Ferrand</h3>
-        <p>2 chambres • 1 bain • WiFi</p>
-        <span class="available">Disponible 15 Avr 2022</span>
-      </div>
-      <p class="price">115 €/nuit</p>
-    </div>
-  </a>
-
-</div>
-
-
-
-<!-- ✅ Pagination -->
-<div class="pagination" id="pagination"></div>
-
-
-    </section>
-
-    <!-- Carte -->
-    <section class="map">
-      <div class="map-header">
-        <h3>Carte des logements</h3>
-      </div>
-      <div id="map"></div>
-    </section>
   </main>
 
 
@@ -360,11 +216,9 @@
 <!-- ================================================== -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-left">
       <div class="logo-block">
-        <img src="/assets/images/logo.png" alt="CabinUp" class="logo">
-
+        <img src="../assets/images/logo.png" alt="CabinUp" class="logo">
         <div class="socials">
           <div class="icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -391,21 +245,34 @@
 
       <div class="footer-col">
         <h4>404</h4>
-        <a href="/pages/404.html">Aperçu 404</a>
+        <a href="./pages/404.html">Aperçu 404</a>
         <a href="#">Conditions générales</a>
       </div>
     </div>
-
   </div>
 
   <div class="footer-bottom">
     <p>© 2025 CabinUp. Tous droits réservés.</p>
   </div>
 </footer>
+
   
-   <!-- ===================== SCRIPTS ===================== -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="/assets/script/script.js"></script>
+  <!-- Leaflet -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Script principal -->
+<script type="module" src="../assets/script/script.js"></script>
+
+<!-- Initialisation -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof initMapCatalogue === "function") {
+      initMapCatalogue();
+    } else {
+      console.error("❌ initMapCatalogue n'est pas défini !");
+    }
+  });
+</script>
 
 </body>
 </html>
