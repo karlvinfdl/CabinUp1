@@ -123,12 +123,11 @@ function applyFilter() {
   renderCurrentPage();
 }
 
-// --- Chargement du catalogue ---
 document.addEventListener('DOMContentLoaded', () => {
   const container = $('#cardsContainer');
   if (!container) return;
 
-  fetch("http://localhost:3001/logements")
+  fetch("https://karlvinfdl.github.io/CabinUp1/data/logements.json") // URL de ton fichier JSON GitHub Pages
     .then(res => {
       if (!res.ok) throw new Error("Erreur serveur");
       return res.json();
@@ -175,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 // ============================================================
 // 🏡 PAGE DÉTAIL LOGEMENT — JSON SERVER + PANIER + GALERIE + CARTE
 // ============================================================
@@ -186,23 +186,26 @@ const $ = (s, scope = document) => scope.querySelector(s);
 const id = new URLSearchParams(window.location.search).get("id");
 
 if (id) {
-  // --- URL du serveur JSON
-  const BASE = "http://localhost:3001"; // ⚠️ utiliser localhost, pas 127.0.0.1
+  // --- URL du fichier JSON sur GitHub Pages
+  const BASE = "https://karlvinfdl.github.io/CabinUp1/data/logements.json"; // Nouvelle URL GitHub Pages
 
-  // --- Chargement du logement depuis le JSON Server
-  fetch(`${BASE}/logements/${id}`)
+  // --- Chargement du logement depuis le fichier JSON
+  fetch(BASE)
     .then(res => {
       if (!res.ok) throw new Error(`Erreur ${res.status} : logement non trouvé`);
       return res.json();
     })
-    .then(l => {
-      if (!l || !l.id) throw new Error("Aucun logement correspondant trouvé.");
+    .then(data => {
+      // Recherche du logement correspondant à l'ID
+      const logement = data.find(l => l.id == id);
+      
+      if (!logement) throw new Error("Aucun logement correspondant trouvé.");
 
       // === Image principale ===
       const mainImg = $("#product-image");
-      const fixedMainImg = l.image?.replace(/^(\.\.\/)+/, "../") || "../assets/images/placeholder.jpg";
+      const fixedMainImg = logement.image?.replace(/^(\.\.\/)+/, "../") || "../assets/images/placeholder.jpg";
       mainImg.src = fixedMainImg;
-      mainImg.alt = l.titre;
+      mainImg.alt = logement.titre;
 
       // === Galerie ===
       const thumbs = document.querySelector(".thumbs__detail");
@@ -210,57 +213,57 @@ if (id) {
       thumbs.innerHTML = "";
       lightboxSlides.innerHTML = "";
 
-      const allImages = [fixedMainImg, ...(l.galerie || []).map(img => img.replace(/^(\.\.\/)+/, "../"))];
+      const allImages = [fixedMainImg, ...(logement.galerie || []).map(img => img.replace(/^(\.\.\/)+/, "../"))];
       allImages.forEach((img, idx) => {
         if (idx > 0) {
           const div = document.createElement("div");
           div.className = "thumb__detail";
-          div.innerHTML = `<img src="${img}" alt="${l.titre}">`;
+          div.innerHTML = `<img src="${img}" alt="${logement.titre}">`;
           div.addEventListener("click", () => (mainImg.src = img));
           thumbs.appendChild(div);
         }
         const imageEl = document.createElement("img");
         imageEl.src = img;
-        imageEl.alt = l.titre;
+        imageEl.alt = logement.titre;
         lightboxSlides.appendChild(imageEl);
       });
 
       // === Infos principales ===
-      $("#product-title").textContent = l.titre;
-      $("#product-desc p").textContent = l.description;
-      $("#product-price").innerHTML = `${l.prix} € <span class="muted__detail">/ nuit</span>`;
-      $(".meta__detail").innerHTML = `<span>${l.ville}</span> • <span>${l.capacite} pers.</span>`;
+      $("#product-title").textContent = logement.titre;
+      $("#product-desc p").textContent = logement.description;
+      $("#product-price").innerHTML = `${logement.prix} € <span class="muted__detail">/ nuit</span>`;
+      $(".meta__detail").innerHTML = `<span>${logement.ville}</span> • <span>${logement.capacite} pers.</span>`;
 
       // === Équipements ===
       const amenContainer = $(".amen-grid__detail");
-      amenContainer.innerHTML = (l.equipements || [])
+      amenContainer.innerHTML = (logement.equipements || [])
         .map(eq => `<div class="amen__detail"><i class="fa-solid fa-check"></i><span>${eq}</span></div>`)
         .join("");
 
       // === Carte Leaflet ===
-      initMapDetail(l.lat, l.lng, 12, `${l.titre} — ${l.ville}`);
+      initMapDetail(logement.lat, logement.lng, 12, `${logement.titre} — ${logement.ville}`);
 
       // === Ajouter au panier ===
       $("#add-to-cart").addEventListener("click", e => {
         e.preventDefault();
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        if (cart.find(item => item.id === l.id)) {
+        if (cart.find(item => item.id === logement.id)) {
           alert("⚠️ Ce logement est déjà dans votre panier !");
           return;
         }
 
         cart.push({
-          id: l.id,
-          titre: l.titre,
-          ville: l.ville,
-          prix: l.prix,
-          description: l.description,
-          capacite: l.capacite,
+          id: logement.id,
+          titre: logement.titre,
+          ville: logement.ville,
+          prix: logement.prix,
+          description: logement.description,
+          capacite: logement.capacite,
           image: fixedMainImg,
-          galerie: l.galerie,
-          lat: l.lat,
-          lng: l.lng,
+          galerie: logement.galerie,
+          lat: logement.lat,
+          lng: logement.lng,
           nights: 1,
           guests: 1
         });
@@ -276,6 +279,7 @@ if (id) {
 } else {
   console.error("❌ ID manquant dans l'URL.");
 }
+
 
 // --- Fonction pour initialiser la carte dans la page de détail ---
 function initMapDetail(lat = 45.75, lng = 4.85, zoom = 12, title = "Emplacement du logement") {
