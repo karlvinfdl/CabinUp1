@@ -260,8 +260,10 @@
   <!-- Leaflet -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<!-- Script principal -->
-<script type="module" src="../assets/script/script.js"></script>
+<!-- Assurez-vous que ce fichier est chargé avant d'utiliser initMapCatalogue -->
+<script type="module" src="../assets/script/script.js"></script> <!-- Contient initMapCatalogue -->
+<script type="module" src="../assets/script/cataloguedetail.js"></script> <!-- Pour les détails spécifiques -->
+
 
 <!-- Initialisation -->
 <script>
