@@ -203,10 +203,11 @@ function applyFilter() {
 
 // --- Chargement du catalogue ---
 document.addEventListener('DOMContentLoaded', () => {
-  const container = $('#cardsContainer');
-  if (!container) return;
+  const apiUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:3001/logements'  // Local avec json-server
+    : '/db.json';  // Sur GitHub Pages avec fichier JSON statique
 
-  fetch("http://localhost:3001/logements")
+  fetch(apiUrl)
     .then(res => {
       if (!res.ok) throw new Error("Erreur serveur");
       return res.json();

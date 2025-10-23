@@ -13,11 +13,13 @@ if (!id) {
   throw new Error("ID manquant dans l’URL !");
 }
 
-// --- URL du serveur JSON
-const BASE_URL = "http://localhost:3001"; // ⚠️ utiliser localhost, pas 127.0.0.1
+// --- URL pour GitHub Pages et local ---
+const apiUrl = window.location.hostname === 'localhost'
+  ? 'http://localhost:3001/logements'  // Local avec json-server
+  : '/db.json';  // Sur GitHub Pages avec fichier JSON statique
 
-// --- Chargement du logement depuis le JSON Server
-fetch(`${BASE_URL}/logements/${id}`)
+// --- Chargement du logement spécifique ---
+fetch(apiUrl)
   .then(res => {
     if (!res.ok) throw new Error(`Erreur ${res.status} : logement non trouvé`);
     return res.json();
