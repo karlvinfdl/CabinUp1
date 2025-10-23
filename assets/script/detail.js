@@ -1,8 +1,11 @@
 // ============================================================
-// 🏡 PAGE DÉTAIL — Affichage d’un logement et carte Leaflet
+// 🏡 PAGE DÉTAIL LOGEMENT — JSON SERVER + PANIER + GALERIE + CARTE
 // ============================================================
 
-// --- Récupération de l'ID dans l'URL ---
+// Sélecteurs rapides
+const $ = (s, scope = document) => scope.querySelector(s);
+
+// --- Récupération de l'ID dans l'URL
 const id = new URLSearchParams(window.location.search).get("id");
 
 if (!id) {
@@ -10,10 +13,10 @@ if (!id) {
   throw new Error("ID manquant dans l’URL !");
 }
 
-// --- URL du serveur JSON ---
-const BASE_URL = "http://localhost:3001";
+// --- URL du serveur JSON
+const BASE_URL = "http://localhost:3001"; // ⚠️ utiliser localhost, pas 127.0.0.1
 
-// --- Chargement du logement depuis le JSON Server ---
+// --- Chargement du logement depuis le JSON Server
 fetch(`${BASE_URL}/logements/${id}`)
   .then(res => {
     if (!res.ok) throw new Error(`Erreur ${res.status} : logement non trouvé`);
@@ -97,21 +100,6 @@ fetch(`${BASE_URL}/logements/${id}`)
     console.error("Erreur lors du chargement du logement :", err);
     document.body.innerHTML = `<h2 style="color:red;text-align:center;">⚠️ ${err.message}</h2>`;
   });
-
-// --- Initialisation de la carte Leaflet ---
-function initMapDetail(lat, lng, zoom = 13, popupText = "Logement") {
-  if (typeof L === "undefined") return;
-
-  const map = L.map("map-detail").setView([lat, lng], zoom);
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; OpenStreetMap',
-  }).addTo(map);
-
-  L.marker([lat, lng]).addTo(map).bindPopup(popupText).openPopup();
-}
-
-
 
 // ============================================================
 // 🗺️ Fonction de carte Leaflet (empêche double initialisation)

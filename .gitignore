@@ -16,9 +16,6 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# JSON Server database (optionnel si local seulement)
-mock/db.json
-
 # VS Code settings (optionnel)
 .vscode/
 
